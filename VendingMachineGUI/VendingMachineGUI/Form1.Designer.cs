@@ -46,7 +46,7 @@ namespace VendingMachineGUI
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.hashTag = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
@@ -134,6 +134,7 @@ namespace VendingMachineGUI
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(342, 142);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -149,6 +150,7 @@ namespace VendingMachineGUI
             this.button1.TabIndex = 9;
             this.button1.Text = "B";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -158,6 +160,7 @@ namespace VendingMachineGUI
             this.button2.TabIndex = 10;
             this.button2.Text = "C";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -167,6 +170,7 @@ namespace VendingMachineGUI
             this.button3.TabIndex = 11;
             this.button3.Text = "A";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -176,6 +180,7 @@ namespace VendingMachineGUI
             this.button4.TabIndex = 12;
             this.button4.Text = "3";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -185,6 +190,7 @@ namespace VendingMachineGUI
             this.button5.TabIndex = 13;
             this.button5.Text = "1";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -194,6 +200,7 @@ namespace VendingMachineGUI
             this.button6.TabIndex = 14;
             this.button6.Text = "2";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -203,6 +210,7 @@ namespace VendingMachineGUI
             this.button7.TabIndex = 15;
             this.button7.Text = "D";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -212,15 +220,17 @@ namespace VendingMachineGUI
             this.button8.TabIndex = 16;
             this.button8.Text = "4";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button9
+            // hashTag
             // 
-            this.button9.Location = new System.Drawing.Point(373, 222);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(19, 21);
-            this.button9.TabIndex = 17;
-            this.button9.Text = "#";
-            this.button9.UseVisualStyleBackColor = true;
+            this.hashTag.Location = new System.Drawing.Point(373, 222);
+            this.hashTag.Name = "hashTag";
+            this.hashTag.Size = new System.Drawing.Size(19, 21);
+            this.hashTag.TabIndex = 17;
+            this.hashTag.Text = "#";
+            this.hashTag.UseVisualStyleBackColor = true;
+            this.hashTag.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -231,9 +241,11 @@ namespace VendingMachineGUI
             this.button10.TabIndex = 18;
             this.button10.Text = "Eject";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(342, 52);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -251,6 +263,7 @@ namespace VendingMachineGUI
             this.button11.TabIndex = 20;
             this.button11.Text = "Purchase";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Form1
             // 
@@ -260,7 +273,7 @@ namespace VendingMachineGUI
             this.Controls.Add(this.button11);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
+            this.Controls.Add(this.hashTag);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
@@ -312,7 +325,7 @@ namespace VendingMachineGUI
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button hashTag;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button11;
