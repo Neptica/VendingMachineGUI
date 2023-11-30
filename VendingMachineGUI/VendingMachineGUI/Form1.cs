@@ -14,7 +14,7 @@ namespace VendingMachineGUI
     {
         private const bool DEVELOPERMODE = true;
         private string[] userinput = {" ", " "};
-        private string pwAttempt = ""; // this is displayed currently for developer convenience
+        private string pwAttempt = ""; 
         private string password = "A1D4B2C3";
         private bool privileged = false;
         public Form1()
@@ -44,7 +44,7 @@ namespace VendingMachineGUI
         }
         private void DisplayUserInput()
         {
-            if (DEVELOPERMODE) textBox2.Text = pwAttempt;
+            if (DEVELOPERMODE) textBox2.Text = pwAttempt; // this is displayed for developer convenience
             textBox1.Text = string.Join("", userinput);
         }
         private void button3_Click(object sender, EventArgs e)
