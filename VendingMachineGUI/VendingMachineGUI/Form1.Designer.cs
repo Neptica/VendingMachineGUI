@@ -29,14 +29,6 @@ namespace VendingMachineGUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.milkyway = new System.Windows.Forms.PictureBox();
-            this.funyons = new System.Windows.Forms.PictureBox();
-            this.cheetos = new System.Windows.Forms.PictureBox();
-            this.ranchDoritos = new System.Windows.Forms.PictureBox();
-            this.nachoDoritos = new System.Windows.Forms.PictureBox();
-            this.snickers = new System.Windows.Forms.PictureBox();
-            this.vendingMachineBottom = new System.Windows.Forms.PictureBox();
-            this.vendingMachine = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -72,6 +64,65 @@ namespace VendingMachineGUI
             this.button14 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.mentos = new System.Windows.Forms.PictureBox();
+            this.watermelonGumFalling = new System.Windows.Forms.PictureBox();
+            this.watermelonGum = new System.Windows.Forms.PictureBox();
+            this.peppermintGumFalling = new System.Windows.Forms.PictureBox();
+            this.peppermintGum = new System.Windows.Forms.PictureBox();
+            this.spearmintGumFalling = new System.Windows.Forms.PictureBox();
+            this.spearmintGum = new System.Windows.Forms.PictureBox();
+            this.orangeGatoradeFalling = new System.Windows.Forms.PictureBox();
+            this.blueGatoradeFalling = new System.Windows.Forms.PictureBox();
+            this.redGatoradeFalling = new System.Windows.Forms.PictureBox();
+            this.waterFalling = new System.Windows.Forms.PictureBox();
+            this.threeMusketFalling = new System.Windows.Forms.PictureBox();
+            this.twixFalling = new System.Windows.Forms.PictureBox();
+            this.milkywayFalling = new System.Windows.Forms.PictureBox();
+            this.snickersFalling = new System.Windows.Forms.PictureBox();
+            this.funyunsFalling = new System.Windows.Forms.PictureBox();
+            this.cheetosFalling = new System.Windows.Forms.PictureBox();
+            this.nachoDoritosFalling = new System.Windows.Forms.PictureBox();
+            this.ranchDoritosFalling = new System.Windows.Forms.PictureBox();
+            this.orangeGatorade = new System.Windows.Forms.PictureBox();
+            this.blueGatorade = new System.Windows.Forms.PictureBox();
+            this.redGatorade = new System.Windows.Forms.PictureBox();
+            this.water = new System.Windows.Forms.PictureBox();
+            this.threeMusket = new System.Windows.Forms.PictureBox();
+            this.twix = new System.Windows.Forms.PictureBox();
+            this.milkyway = new System.Windows.Forms.PictureBox();
+            this.funyons = new System.Windows.Forms.PictureBox();
+            this.cheetos = new System.Windows.Forms.PictureBox();
+            this.ranchDoritos = new System.Windows.Forms.PictureBox();
+            this.nachoDoritos = new System.Windows.Forms.PictureBox();
+            this.snickers = new System.Windows.Forms.PictureBox();
+            this.vendingMachineBottom = new System.Windows.Forms.PictureBox();
+            this.vendingMachine = new System.Windows.Forms.PictureBox();
+            this.mentosFalling = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.mentos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.watermelonGumFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.watermelonGum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peppermintGumFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peppermintGum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spearmintGumFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spearmintGum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeGatoradeFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blueGatoradeFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redGatoradeFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.threeMusketFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twixFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.milkywayFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.snickersFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funyunsFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheetosFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nachoDoritosFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ranchDoritosFalling)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeGatorade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blueGatorade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redGatorade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.water)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.threeMusket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twix)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.milkyway)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.funyons)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cheetos)).BeginInit();
@@ -80,79 +131,8 @@ namespace VendingMachineGUI
             ((System.ComponentModel.ISupportInitialize)(this.snickers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendingMachineBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendingMachine)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mentosFalling)).BeginInit();
             this.SuspendLayout();
-            // 
-            // milkyway
-            // 
-            this.milkyway.Image = global::VendingMachineGUI.Properties.Resources.milkway;
-            this.milkyway.Location = new System.Drawing.Point(140, 120);
-            this.milkyway.Name = "milkyway";
-            this.milkyway.Size = new System.Drawing.Size(23, 84);
-            this.milkyway.TabIndex = 7;
-            this.milkyway.TabStop = false;
-            // 
-            // funyons
-            // 
-            this.funyons.Image = global::VendingMachineGUI.Properties.Resources.funyons;
-            this.funyons.Location = new System.Drawing.Point(262, 35);
-            this.funyons.Name = "funyons";
-            this.funyons.Size = new System.Drawing.Size(42, 67);
-            this.funyons.TabIndex = 6;
-            this.funyons.TabStop = false;
-            // 
-            // cheetos
-            // 
-            this.cheetos.Image = global::VendingMachineGUI.Properties.Resources.cheetos;
-            this.cheetos.Location = new System.Drawing.Point(200, 37);
-            this.cheetos.Name = "cheetos";
-            this.cheetos.Size = new System.Drawing.Size(39, 66);
-            this.cheetos.TabIndex = 5;
-            this.cheetos.TabStop = false;
-            // 
-            // ranchDoritos
-            // 
-            this.ranchDoritos.Image = global::VendingMachineGUI.Properties.Resources.download;
-            this.ranchDoritos.Location = new System.Drawing.Point(62, 52);
-            this.ranchDoritos.Name = "ranchDoritos";
-            this.ranchDoritos.Size = new System.Drawing.Size(33, 50);
-            this.ranchDoritos.TabIndex = 4;
-            this.ranchDoritos.TabStop = false;
-            // 
-            // nachoDoritos
-            // 
-            this.nachoDoritos.Image = global::VendingMachineGUI.Properties.Resources.nachoDoritos;
-            this.nachoDoritos.Location = new System.Drawing.Point(132, 52);
-            this.nachoDoritos.Name = "nachoDoritos";
-            this.nachoDoritos.Size = new System.Drawing.Size(41, 50);
-            this.nachoDoritos.TabIndex = 3;
-            this.nachoDoritos.TabStop = false;
-            // 
-            // snickers
-            // 
-            this.snickers.Image = global::VendingMachineGUI.Properties.Resources.pngimg3;
-            this.snickers.Location = new System.Drawing.Point(73, 124);
-            this.snickers.Name = "snickers";
-            this.snickers.Size = new System.Drawing.Size(22, 80);
-            this.snickers.TabIndex = 2;
-            this.snickers.TabStop = false;
-            // 
-            // vendingMachineBottom
-            // 
-            this.vendingMachineBottom.Image = global::VendingMachineGUI.Properties.Resources.Capture;
-            this.vendingMachineBottom.Location = new System.Drawing.Point(-48, 438);
-            this.vendingMachineBottom.Name = "vendingMachineBottom";
-            this.vendingMachineBottom.Size = new System.Drawing.Size(479, 160);
-            this.vendingMachineBottom.TabIndex = 1;
-            this.vendingMachineBottom.TabStop = false;
-            // 
-            // vendingMachine
-            // 
-            this.vendingMachine.BackgroundImage = global::VendingMachineGUI.Properties.Resources.pngtree_vending_machine_blue_automatic_machine_png_image_3979327;
-            this.vendingMachine.Location = new System.Drawing.Point(-51, -14);
-            this.vendingMachine.Name = "vendingMachine";
-            this.vendingMachine.Size = new System.Drawing.Size(482, 629);
-            this.vendingMachine.TabIndex = 0;
-            this.vendingMachine.TabStop = false;
             // 
             // textBox1
             // 
@@ -485,11 +465,375 @@ namespace VendingMachineGUI
             this.button15.Text = "$5";
             this.button15.UseVisualStyleBackColor = true;
             // 
+            // mentos
+            // 
+            this.mentos.Image = global::VendingMachineGUI.Properties.Resources.mentos;
+            this.mentos.Location = new System.Drawing.Point(277, 330);
+            this.mentos.Name = "mentos";
+            this.mentos.Size = new System.Drawing.Size(12, 80);
+            this.mentos.TabIndex = 69;
+            this.mentos.TabStop = false;
+            this.mentos.Visible = false;
+            // 
+            // watermelonGumFalling
+            // 
+            this.watermelonGumFalling.Image = global::VendingMachineGUI.Properties.Resources.watermelonGum;
+            this.watermelonGumFalling.Location = new System.Drawing.Point(191, 349);
+            this.watermelonGumFalling.Name = "watermelonGumFalling";
+            this.watermelonGumFalling.Size = new System.Drawing.Size(49, 61);
+            this.watermelonGumFalling.TabIndex = 68;
+            this.watermelonGumFalling.TabStop = false;
+            this.watermelonGumFalling.Visible = false;
+            // 
+            // watermelonGum
+            // 
+            this.watermelonGum.Image = global::VendingMachineGUI.Properties.Resources.watermelonGum;
+            this.watermelonGum.Location = new System.Drawing.Point(191, 349);
+            this.watermelonGum.Name = "watermelonGum";
+            this.watermelonGum.Size = new System.Drawing.Size(49, 61);
+            this.watermelonGum.TabIndex = 67;
+            this.watermelonGum.TabStop = false;
+            this.watermelonGum.Visible = false;
+            // 
+            // peppermintGumFalling
+            // 
+            this.peppermintGumFalling.Image = global::VendingMachineGUI.Properties.Resources.peppermintGum;
+            this.peppermintGumFalling.Location = new System.Drawing.Point(126, 348);
+            this.peppermintGumFalling.Name = "peppermintGumFalling";
+            this.peppermintGumFalling.Size = new System.Drawing.Size(48, 62);
+            this.peppermintGumFalling.TabIndex = 66;
+            this.peppermintGumFalling.TabStop = false;
+            this.peppermintGumFalling.Visible = false;
+            // 
+            // peppermintGum
+            // 
+            this.peppermintGum.Image = global::VendingMachineGUI.Properties.Resources.peppermintGum;
+            this.peppermintGum.Location = new System.Drawing.Point(126, 348);
+            this.peppermintGum.Name = "peppermintGum";
+            this.peppermintGum.Size = new System.Drawing.Size(48, 62);
+            this.peppermintGum.TabIndex = 65;
+            this.peppermintGum.TabStop = false;
+            this.peppermintGum.Visible = false;
+            // 
+            // spearmintGumFalling
+            // 
+            this.spearmintGumFalling.Image = global::VendingMachineGUI.Properties.Resources.spearmintGum1;
+            this.spearmintGumFalling.Location = new System.Drawing.Point(58, 348);
+            this.spearmintGumFalling.Name = "spearmintGumFalling";
+            this.spearmintGumFalling.Size = new System.Drawing.Size(49, 60);
+            this.spearmintGumFalling.TabIndex = 64;
+            this.spearmintGumFalling.TabStop = false;
+            this.spearmintGumFalling.Visible = false;
+            // 
+            // spearmintGum
+            // 
+            this.spearmintGum.Image = global::VendingMachineGUI.Properties.Resources.spearmintGum1;
+            this.spearmintGum.Location = new System.Drawing.Point(58, 348);
+            this.spearmintGum.Name = "spearmintGum";
+            this.spearmintGum.Size = new System.Drawing.Size(49, 60);
+            this.spearmintGum.TabIndex = 63;
+            this.spearmintGum.TabStop = false;
+            this.spearmintGum.Visible = false;
+            // 
+            // orangeGatoradeFalling
+            // 
+            this.orangeGatoradeFalling.Image = global::VendingMachineGUI.Properties.Resources.orangeGatorade;
+            this.orangeGatoradeFalling.Location = new System.Drawing.Point(267, 231);
+            this.orangeGatoradeFalling.Name = "orangeGatoradeFalling";
+            this.orangeGatoradeFalling.Size = new System.Drawing.Size(30, 78);
+            this.orangeGatoradeFalling.TabIndex = 62;
+            this.orangeGatoradeFalling.TabStop = false;
+            this.orangeGatoradeFalling.Visible = false;
+            // 
+            // blueGatoradeFalling
+            // 
+            this.blueGatoradeFalling.Image = global::VendingMachineGUI.Properties.Resources.blueGatorade;
+            this.blueGatoradeFalling.Location = new System.Drawing.Point(200, 230);
+            this.blueGatoradeFalling.Name = "blueGatoradeFalling";
+            this.blueGatoradeFalling.Size = new System.Drawing.Size(31, 78);
+            this.blueGatoradeFalling.TabIndex = 61;
+            this.blueGatoradeFalling.TabStop = false;
+            this.blueGatoradeFalling.Visible = false;
+            // 
+            // redGatoradeFalling
+            // 
+            this.redGatoradeFalling.Image = global::VendingMachineGUI.Properties.Resources.redGatorade;
+            this.redGatoradeFalling.Location = new System.Drawing.Point(132, 228);
+            this.redGatoradeFalling.Name = "redGatoradeFalling";
+            this.redGatoradeFalling.Size = new System.Drawing.Size(32, 81);
+            this.redGatoradeFalling.TabIndex = 60;
+            this.redGatoradeFalling.TabStop = false;
+            this.redGatoradeFalling.Visible = false;
+            // 
+            // waterFalling
+            // 
+            this.waterFalling.Image = global::VendingMachineGUI.Properties.Resources.water;
+            this.waterFalling.Location = new System.Drawing.Point(67, 227);
+            this.waterFalling.Name = "waterFalling";
+            this.waterFalling.Size = new System.Drawing.Size(28, 82);
+            this.waterFalling.TabIndex = 59;
+            this.waterFalling.TabStop = false;
+            this.waterFalling.Visible = false;
+            // 
+            // threeMusketFalling
+            // 
+            this.threeMusketFalling.Image = global::VendingMachineGUI.Properties.Resources.threemusket;
+            this.threeMusketFalling.Location = new System.Drawing.Point(275, 129);
+            this.threeMusketFalling.Name = "threeMusketFalling";
+            this.threeMusketFalling.Size = new System.Drawing.Size(18, 75);
+            this.threeMusketFalling.TabIndex = 58;
+            this.threeMusketFalling.TabStop = false;
+            this.threeMusketFalling.Visible = false;
+            // 
+            // twixFalling
+            // 
+            this.twixFalling.Image = global::VendingMachineGUI.Properties.Resources.twix;
+            this.twixFalling.Location = new System.Drawing.Point(200, 120);
+            this.twixFalling.Name = "twixFalling";
+            this.twixFalling.Size = new System.Drawing.Size(31, 84);
+            this.twixFalling.TabIndex = 57;
+            this.twixFalling.TabStop = false;
+            this.twixFalling.Visible = false;
+            // 
+            // milkywayFalling
+            // 
+            this.milkywayFalling.Image = global::VendingMachineGUI.Properties.Resources.milkway;
+            this.milkywayFalling.Location = new System.Drawing.Point(140, 120);
+            this.milkywayFalling.Name = "milkywayFalling";
+            this.milkywayFalling.Size = new System.Drawing.Size(23, 84);
+            this.milkywayFalling.TabIndex = 56;
+            this.milkywayFalling.TabStop = false;
+            this.milkywayFalling.Visible = false;
+            // 
+            // snickersFalling
+            // 
+            this.snickersFalling.Image = global::VendingMachineGUI.Properties.Resources.pngimg3;
+            this.snickersFalling.Location = new System.Drawing.Point(73, 124);
+            this.snickersFalling.Name = "snickersFalling";
+            this.snickersFalling.Size = new System.Drawing.Size(22, 80);
+            this.snickersFalling.TabIndex = 55;
+            this.snickersFalling.TabStop = false;
+            this.snickersFalling.Visible = false;
+            // 
+            // funyunsFalling
+            // 
+            this.funyunsFalling.Image = global::VendingMachineGUI.Properties.Resources.funyons;
+            this.funyunsFalling.Location = new System.Drawing.Point(262, 35);
+            this.funyunsFalling.Name = "funyunsFalling";
+            this.funyunsFalling.Size = new System.Drawing.Size(42, 67);
+            this.funyunsFalling.TabIndex = 54;
+            this.funyunsFalling.TabStop = false;
+            this.funyunsFalling.Visible = false;
+            // 
+            // cheetosFalling
+            // 
+            this.cheetosFalling.Image = global::VendingMachineGUI.Properties.Resources.cheetos;
+            this.cheetosFalling.Location = new System.Drawing.Point(200, 37);
+            this.cheetosFalling.Name = "cheetosFalling";
+            this.cheetosFalling.Size = new System.Drawing.Size(39, 66);
+            this.cheetosFalling.TabIndex = 53;
+            this.cheetosFalling.TabStop = false;
+            this.cheetosFalling.Visible = false;
+            // 
+            // nachoDoritosFalling
+            // 
+            this.nachoDoritosFalling.Image = global::VendingMachineGUI.Properties.Resources.nachoDoritos;
+            this.nachoDoritosFalling.Location = new System.Drawing.Point(132, 52);
+            this.nachoDoritosFalling.Name = "nachoDoritosFalling";
+            this.nachoDoritosFalling.Size = new System.Drawing.Size(41, 50);
+            this.nachoDoritosFalling.TabIndex = 52;
+            this.nachoDoritosFalling.TabStop = false;
+            this.nachoDoritosFalling.Visible = false;
+            // 
+            // ranchDoritosFalling
+            // 
+            this.ranchDoritosFalling.Image = global::VendingMachineGUI.Properties.Resources.download;
+            this.ranchDoritosFalling.Location = new System.Drawing.Point(62, 52);
+            this.ranchDoritosFalling.Name = "ranchDoritosFalling";
+            this.ranchDoritosFalling.Size = new System.Drawing.Size(33, 50);
+            this.ranchDoritosFalling.TabIndex = 51;
+            this.ranchDoritosFalling.TabStop = false;
+            this.ranchDoritosFalling.Visible = false;
+            // 
+            // orangeGatorade
+            // 
+            this.orangeGatorade.Image = global::VendingMachineGUI.Properties.Resources.orangeGatorade;
+            this.orangeGatorade.Location = new System.Drawing.Point(267, 230);
+            this.orangeGatorade.Name = "orangeGatorade";
+            this.orangeGatorade.Size = new System.Drawing.Size(30, 78);
+            this.orangeGatorade.TabIndex = 50;
+            this.orangeGatorade.TabStop = false;
+            this.orangeGatorade.Visible = false;
+            // 
+            // blueGatorade
+            // 
+            this.blueGatorade.Image = global::VendingMachineGUI.Properties.Resources.blueGatorade;
+            this.blueGatorade.Location = new System.Drawing.Point(200, 230);
+            this.blueGatorade.Name = "blueGatorade";
+            this.blueGatorade.Size = new System.Drawing.Size(31, 78);
+            this.blueGatorade.TabIndex = 49;
+            this.blueGatorade.TabStop = false;
+            this.blueGatorade.Visible = false;
+            // 
+            // redGatorade
+            // 
+            this.redGatorade.Image = global::VendingMachineGUI.Properties.Resources.redGatorade;
+            this.redGatorade.Location = new System.Drawing.Point(132, 227);
+            this.redGatorade.Name = "redGatorade";
+            this.redGatorade.Size = new System.Drawing.Size(32, 81);
+            this.redGatorade.TabIndex = 48;
+            this.redGatorade.TabStop = false;
+            this.redGatorade.Visible = false;
+            // 
+            // water
+            // 
+            this.water.Image = global::VendingMachineGUI.Properties.Resources.water;
+            this.water.Location = new System.Drawing.Point(67, 226);
+            this.water.Name = "water";
+            this.water.Size = new System.Drawing.Size(28, 82);
+            this.water.TabIndex = 47;
+            this.water.TabStop = false;
+            this.water.Visible = false;
+            // 
+            // threeMusket
+            // 
+            this.threeMusket.Image = global::VendingMachineGUI.Properties.Resources.threemusket;
+            this.threeMusket.Location = new System.Drawing.Point(274, 129);
+            this.threeMusket.Name = "threeMusket";
+            this.threeMusket.Size = new System.Drawing.Size(18, 75);
+            this.threeMusket.TabIndex = 46;
+            this.threeMusket.TabStop = false;
+            this.threeMusket.Visible = false;
+            // 
+            // twix
+            // 
+            this.twix.Image = global::VendingMachineGUI.Properties.Resources.twix;
+            this.twix.Location = new System.Drawing.Point(200, 120);
+            this.twix.Name = "twix";
+            this.twix.Size = new System.Drawing.Size(31, 84);
+            this.twix.TabIndex = 45;
+            this.twix.TabStop = false;
+            this.twix.Visible = false;
+            // 
+            // milkyway
+            // 
+            this.milkyway.Image = global::VendingMachineGUI.Properties.Resources.milkway;
+            this.milkyway.Location = new System.Drawing.Point(140, 120);
+            this.milkyway.Name = "milkyway";
+            this.milkyway.Size = new System.Drawing.Size(23, 84);
+            this.milkyway.TabIndex = 7;
+            this.milkyway.TabStop = false;
+            this.milkyway.Visible = false;
+            // 
+            // funyons
+            // 
+            this.funyons.Image = global::VendingMachineGUI.Properties.Resources.funyons;
+            this.funyons.Location = new System.Drawing.Point(262, 35);
+            this.funyons.Name = "funyons";
+            this.funyons.Size = new System.Drawing.Size(42, 67);
+            this.funyons.TabIndex = 6;
+            this.funyons.TabStop = false;
+            this.funyons.Visible = false;
+            // 
+            // cheetos
+            // 
+            this.cheetos.Image = global::VendingMachineGUI.Properties.Resources.cheetos;
+            this.cheetos.Location = new System.Drawing.Point(200, 37);
+            this.cheetos.Name = "cheetos";
+            this.cheetos.Size = new System.Drawing.Size(39, 66);
+            this.cheetos.TabIndex = 5;
+            this.cheetos.TabStop = false;
+            this.cheetos.Visible = false;
+            // 
+            // ranchDoritos
+            // 
+            this.ranchDoritos.Image = global::VendingMachineGUI.Properties.Resources.download;
+            this.ranchDoritos.Location = new System.Drawing.Point(62, 52);
+            this.ranchDoritos.Name = "ranchDoritos";
+            this.ranchDoritos.Size = new System.Drawing.Size(33, 50);
+            this.ranchDoritos.TabIndex = 4;
+            this.ranchDoritos.TabStop = false;
+            this.ranchDoritos.Visible = false;
+            // 
+            // nachoDoritos
+            // 
+            this.nachoDoritos.Image = global::VendingMachineGUI.Properties.Resources.nachoDoritos;
+            this.nachoDoritos.Location = new System.Drawing.Point(132, 52);
+            this.nachoDoritos.Name = "nachoDoritos";
+            this.nachoDoritos.Size = new System.Drawing.Size(41, 50);
+            this.nachoDoritos.TabIndex = 3;
+            this.nachoDoritos.TabStop = false;
+            this.nachoDoritos.Visible = false;
+            // 
+            // snickers
+            // 
+            this.snickers.Image = global::VendingMachineGUI.Properties.Resources.pngimg3;
+            this.snickers.Location = new System.Drawing.Point(73, 124);
+            this.snickers.Name = "snickers";
+            this.snickers.Size = new System.Drawing.Size(22, 80);
+            this.snickers.TabIndex = 2;
+            this.snickers.TabStop = false;
+            this.snickers.Visible = false;
+            // 
+            // vendingMachineBottom
+            // 
+            this.vendingMachineBottom.Image = global::VendingMachineGUI.Properties.Resources.Capture;
+            this.vendingMachineBottom.Location = new System.Drawing.Point(-48, 438);
+            this.vendingMachineBottom.Name = "vendingMachineBottom";
+            this.vendingMachineBottom.Size = new System.Drawing.Size(479, 160);
+            this.vendingMachineBottom.TabIndex = 1;
+            this.vendingMachineBottom.TabStop = false;
+            // 
+            // vendingMachine
+            // 
+            this.vendingMachine.BackgroundImage = global::VendingMachineGUI.Properties.Resources.pngtree_vending_machine_blue_automatic_machine_png_image_3979327;
+            this.vendingMachine.Location = new System.Drawing.Point(-51, -14);
+            this.vendingMachine.Name = "vendingMachine";
+            this.vendingMachine.Size = new System.Drawing.Size(482, 629);
+            this.vendingMachine.TabIndex = 0;
+            this.vendingMachine.TabStop = false;
+            // 
+            // mentosFalling
+            // 
+            this.mentosFalling.Image = global::VendingMachineGUI.Properties.Resources.mentos;
+            this.mentosFalling.Location = new System.Drawing.Point(277, 330);
+            this.mentosFalling.Name = "mentosFalling";
+            this.mentosFalling.Size = new System.Drawing.Size(12, 80);
+            this.mentosFalling.TabIndex = 70;
+            this.mentosFalling.TabStop = false;
+            this.mentosFalling.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 618);
+            this.Controls.Add(this.mentosFalling);
+            this.Controls.Add(this.mentos);
+            this.Controls.Add(this.watermelonGumFalling);
+            this.Controls.Add(this.watermelonGum);
+            this.Controls.Add(this.peppermintGumFalling);
+            this.Controls.Add(this.peppermintGum);
+            this.Controls.Add(this.spearmintGumFalling);
+            this.Controls.Add(this.spearmintGum);
+            this.Controls.Add(this.orangeGatoradeFalling);
+            this.Controls.Add(this.blueGatoradeFalling);
+            this.Controls.Add(this.redGatoradeFalling);
+            this.Controls.Add(this.waterFalling);
+            this.Controls.Add(this.threeMusketFalling);
+            this.Controls.Add(this.twixFalling);
+            this.Controls.Add(this.milkywayFalling);
+            this.Controls.Add(this.snickersFalling);
+            this.Controls.Add(this.funyunsFalling);
+            this.Controls.Add(this.cheetosFalling);
+            this.Controls.Add(this.nachoDoritosFalling);
+            this.Controls.Add(this.ranchDoritosFalling);
+            this.Controls.Add(this.orangeGatorade);
+            this.Controls.Add(this.blueGatorade);
+            this.Controls.Add(this.redGatorade);
+            this.Controls.Add(this.water);
+            this.Controls.Add(this.threeMusket);
+            this.Controls.Add(this.twix);
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button16);
             this.Controls.Add(this.button14);
@@ -535,6 +879,31 @@ namespace VendingMachineGUI
             this.Controls.Add(this.vendingMachine);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.mentos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.watermelonGumFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.watermelonGum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peppermintGumFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.peppermintGum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spearmintGumFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spearmintGum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeGatoradeFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blueGatoradeFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redGatoradeFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.waterFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.threeMusketFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twixFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.milkywayFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.snickersFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.funyunsFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cheetosFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nachoDoritosFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ranchDoritosFalling)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orangeGatorade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.blueGatorade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.redGatorade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.water)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.threeMusket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.twix)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.milkyway)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.funyons)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cheetos)).EndInit();
@@ -543,6 +912,7 @@ namespace VendingMachineGUI
             ((System.ComponentModel.ISupportInitialize)(this.snickers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendingMachineBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vendingMachine)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mentosFalling)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -593,6 +963,32 @@ namespace VendingMachineGUI
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.PictureBox twix;
+        private System.Windows.Forms.PictureBox threeMusket;
+        private System.Windows.Forms.PictureBox water;
+        private System.Windows.Forms.PictureBox redGatorade;
+        private System.Windows.Forms.PictureBox blueGatorade;
+        private System.Windows.Forms.PictureBox orangeGatorade;
+        private System.Windows.Forms.PictureBox ranchDoritosFalling;
+        private System.Windows.Forms.PictureBox nachoDoritosFalling;
+        private System.Windows.Forms.PictureBox cheetosFalling;
+        private System.Windows.Forms.PictureBox funyunsFalling;
+        private System.Windows.Forms.PictureBox snickersFalling;
+        private System.Windows.Forms.PictureBox milkywayFalling;
+        private System.Windows.Forms.PictureBox twixFalling;
+        private System.Windows.Forms.PictureBox threeMusketFalling;
+        private System.Windows.Forms.PictureBox waterFalling;
+        private System.Windows.Forms.PictureBox redGatoradeFalling;
+        private System.Windows.Forms.PictureBox blueGatoradeFalling;
+        private System.Windows.Forms.PictureBox orangeGatoradeFalling;
+        private System.Windows.Forms.PictureBox spearmintGum;
+        private System.Windows.Forms.PictureBox spearmintGumFalling;
+        private System.Windows.Forms.PictureBox peppermintGum;
+        private System.Windows.Forms.PictureBox peppermintGumFalling;
+        private System.Windows.Forms.PictureBox watermelonGum;
+        private System.Windows.Forms.PictureBox watermelonGumFalling;
+        private System.Windows.Forms.PictureBox mentos;
+        private System.Windows.Forms.PictureBox mentosFalling;
     }
 }
 
