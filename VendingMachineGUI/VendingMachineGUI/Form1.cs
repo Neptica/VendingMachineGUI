@@ -17,6 +17,8 @@ namespace VendingMachineGUI
         private string pwAttempt = ""; 
         private string password = "A1D4B2C3";
         private bool privileged = false;
+        private Product[] products = new Product[16]; // should we use switch cases for accessing elements vs. converting A1, etc to indexes??
+
         public Form1()
         {
             InitializeComponent();
@@ -91,9 +93,19 @@ namespace VendingMachineGUI
             if (pwAttempt == password)
             {
                 privileged = !privileged; // this flips the mode (exits admin mode the using the same password)
-                if (privileged) textBox2.Text = "Priviliged Mode";
-                else textBox2.Text = "Customer Mode";
-                pwAttempt = "";
+                if (privileged)
+                {
+                    textBox2.Text = "Priviliged Mode";
+                    button10.Text = "Restock";
+                    button11.Text = "Logout";
+                }
+                else
+                {
+                    textBox2.Text = "Customer Mode";
+                    button10.Text = "Eject";
+                    button11.Text = "Purchase";
+                }
+                    pwAttempt = "";
                 userinput[0] = " ";
                 userinput[1] = " ";
             }
@@ -105,12 +117,43 @@ namespace VendingMachineGUI
 
         private void button10_Click(object sender, EventArgs e) // Eject
         {
-            adjustDisplay();
+            if (privileged)
+            {
+                textBox2.Text = "Restocked"; // functionality not added yet
+            }
+            else
+            {
+                adjustDisplay();
+            }
         }
 
         private void button11_Click(object sender, EventArgs e) // Purchase
         {
-            adjustDisplay();
+            if (privileged)
+            {
+                textBox2.Text = "Customer Mode";
+                button10.Text = "Eject";
+                button11.Text = "Purchase";
+                privileged = !privileged;
+                textBox2.Text = "Logged out"; // functionality not added yet
+            }
+            else
+            {
+                switch (textBox1.Text)
+                {
+                    case "A1":
+                        // code to purchase the first element
+                        textBox2.Text = "Thank you for buying Cool Ranch Doritos!";
+                        break;
+                    case "A2":
+                        // code to purchase the second element, etc
+                        textBox2.Text = "Thank you for buying Doritos!";
+                        break;
+                    default:
+                        textBox2.Text = "Please input the Item you would like to purchase";
+                        break;
+                }
+            }
         }
     }
 }

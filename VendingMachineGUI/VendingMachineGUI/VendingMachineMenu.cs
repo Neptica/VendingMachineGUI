@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// I don't think we need this file as it only ran the code and managed input, which our form will be doing.
 
 namespace VendingMachineGUI
 {

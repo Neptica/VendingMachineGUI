@@ -10,7 +10,6 @@ namespace VendingMachineGUI
     {
         private string description;
         private double price;
-        private int quantity;
 
         public Product(string aDescription, double aPrice, int aQuantity)
         {
