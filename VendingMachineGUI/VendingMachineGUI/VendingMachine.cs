@@ -14,9 +14,34 @@ namespace VendingMachineGUI
 
         public VendingMachine()
         {
-            products = new List<Product>();
-            coins = new CoinBox();
+            products = new List<Product>(){
+            new Product("Cool Ranch Doritos", 1.25, 0),
+            new Product("Doritos", 1.25, 0),
+            new Product("Cheetos", 1.25, 0),
+            new Product("Funyuns", 1.25, 0),
+            new Product("Snickers", 1.50, 0),
+            new Product("Milky Way", 1.50, 0),
+            new Product("Twix", 1.50, 0),
+            new Product("3 Musketeers", 1.50, 0),
+            new Product("Water", 1.25, 0),
+            new Product("Gatorade", 1.25, 0),
+            new Product("", 1.25, 0),
+            new Product("", 1.25, 0),
+            new Product("", 1, 0),
+            new Product("", 1, 0),
+            new Product("", 1, 0),
+            new Product("", 1, 0)
+        }; // should we use switch cases for accessing elements vs. converting A1, etc to indexes??;
+        coins = new CoinBox();
             currentCoins = new CoinBox();
+        }
+
+        public void restockProducts()
+        {
+            foreach (Product product in products)
+            {
+                product.Quantity = 3;
+            }
         }
 
         public List<Product> getProductTypes()
@@ -41,38 +66,26 @@ namespace VendingMachineGUI
             return currentCoins.getValue();
         }
 
-        public string buyProduct(Product p)
+        public string buyProduct(int element)
         {
-            for (int i = 0; i < products.Count; i++)
+            if (products[element].Quantity == 0) return string.Format("Out of Product {0}", products[element].getDescription());
+            else
             {
-                Product prod = products[i];
-                if (prod == p)
+                double balance = currentCoins.getValue();
+                double price = products[element].getPrice();
+                if (price <= balance)
                 {
-                    double payment = currentCoins.getValue();
-
-                    if (prod.Quantity == 0) { return string.Format("Out of Product {0}", prod.getDescription()); }
-
-                    else if (p.getPrice() <= payment)
-                    {
-                        if (products[i].Quantity > 1)
-                        {
-                            products[i].Quantity--;
-                        }
-                        else
-                        {
-                            products.RemoveAt(i);
-                        }
-                        coins.addCoins(currentCoins);
-                        currentCoins.removeAllCoins();
-                        return "OK";
-                    }
-                    else
-                    {
-                        return "Insufficient money";
-                    }
+                    double payment = balance - price;
+                    products[element].Quantity--;
+                    coins.addCoins(currentCoins);
+                    currentCoins.removeAllCoins();
+                    return string.Format("Purchased {0}", products[element].getDescription());
+                }
+                else
+                {
+                    return string.Format("Insufficient money, {0} inserted", balance.ToString("C"));
                 }
             }
-            return "No such product";
         }
 
         public bool productsAvailable()

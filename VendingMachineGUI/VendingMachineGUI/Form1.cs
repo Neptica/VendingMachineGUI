@@ -17,7 +17,7 @@ namespace VendingMachineGUI
         private string pwAttempt = ""; 
         private string password = "A1D4B2C3";
         private bool privileged = false;
-        private Product[] products = new Product[16]; // should we use switch cases for accessing elements vs. converting A1, etc to indexes??
+        private VendingMachine machine = new VendingMachine();
 
         public Form1()
         {
@@ -119,6 +119,7 @@ namespace VendingMachineGUI
         {
             if (privileged)
             {
+                machine.restockProducts();
                 textBox2.Text = "Restocked"; // functionality not added yet
             }
             else
@@ -139,19 +140,82 @@ namespace VendingMachineGUI
             }
             else
             {
-                switch (textBox1.Text)
+                string input = textBox1.Text;
+                if (input.Length == 2) 
                 {
-                    case "A1":
-                        // code to purchase the first element
-                        textBox2.Text = "Thank you for buying Cool Ranch Doritos!";
-                        break;
-                    case "A2":
-                        // code to purchase the second element, etc
-                        textBox2.Text = "Thank you for buying Doritos!";
-                        break;
-                    default:
-                        textBox2.Text = "Please input the Item you would like to purchase";
-                        break;
+                    int index = 0;
+                    switch (input)
+                    {
+                        case "A1":
+                            // code to purchase the first element
+                            index = 0;
+                            break;
+                        case "A2":
+                            // code to purchase the second element, etc
+                            index = 1;
+                            break;
+                        case "A3":
+                            // code to purchase the first element
+                            index = 2;
+                            break;
+                        case "A4":
+                            // code to purchase the second element, etc
+                            index = 3;
+                            break;
+                        case "B1":
+                            // code to purchase the first element
+                            index = 4;
+                            break;
+                        case "B2":
+                            // code to purchase the second element, etc
+                            index = 5;
+                            break;
+                        case "B3":
+                            // code to purchase the first element
+                            index = 6;
+                            break;
+                        case "B4":
+                            // code to purchase the second element, etc
+                            index = 7;
+                            break;
+                        case "C1":
+                            // code to purchase the first element
+                            index = 8;
+                            break;
+                        case "C2":
+                            // code to purchase the second element, etc
+                            index = 9;
+                            break;
+                        case "C3":
+                            // code to purchase the first element
+                            index = 10;
+                            break;
+                        case "C4":
+                            // code to purchase the second element, etc
+                            index = 11;
+                            break;
+                        case "D1":
+                            // code to purchase the first element
+                            index = 12;
+                            break;
+                        case "D2":
+                            // code to purchase the second element, etc
+                            index = 13;
+                            break;
+                        case "D3":
+                            // code to purchase the first element
+                            index = 14;
+                            break;
+                        case "D4":
+                            // code to purchase the second element, etc
+                            index = 15;
+                            break;
+                    }
+                    textBox2.Text = machine.buyProduct(index);
+                }
+                else
+                {
+                    textBox2.Text = string.Format("Not a valid item {0}", textBox1.Text.Length);
                 }
             }
         }
