@@ -118,5 +118,38 @@
   <ItemGroup>
     <None Include="Resources\milkway.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\twix.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\threemusket.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\water.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redGatorade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blueGatorade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\orangeGatorade.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spearmintGum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\spearmintGum1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\peppermintGum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\watermelonGum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mentos.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
