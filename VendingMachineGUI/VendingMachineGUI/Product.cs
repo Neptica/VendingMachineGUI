@@ -10,12 +10,15 @@ namespace VendingMachineGUI
     {
         private string description;
         private double price;
-
-        public Product(string aDescription, double aPrice, int aQuantity)
+        public System.Windows.Forms.PictureBox Falling;
+        public System.Windows.Forms.PictureBox Display;
+        public Product(string aDescription, double aPrice, int aQuantity, System.Windows.Forms.PictureBox[] pictures)
         {
             description = aDescription;
             price = aPrice;
             Quantity = aQuantity;
+            Falling = pictures[0];
+            Display = pictures[1];
         }
 
         public int Quantity { get; set; }

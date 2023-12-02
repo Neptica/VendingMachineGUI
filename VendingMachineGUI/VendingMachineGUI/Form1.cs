@@ -17,13 +17,14 @@ namespace VendingMachineGUI
         private string pwAttempt = ""; 
         private string password = "A1D4B2C3";
         private bool privileged = false;
-        private VendingMachine machine = new VendingMachine();
+        private bool firstTime = true;
 
         public Form1()
         {
             InitializeComponent();
         }
 
+        private VendingMachine machine;
 
         private void adjustDisplay(int input)
         {
@@ -119,6 +120,11 @@ namespace VendingMachineGUI
         {
             if (privileged)
             {
+                if (firstTime)
+                {
+                    PictureBox[] pictureArray = { ranchDoritosFalling, ranchDoritos }; // Add all the pictures in the right order.
+                    machine = new VendingMachine(pictureArray);
+                }
                 machine.restockProducts();
                 textBox2.Text = "Restocked"; // functionality not added yet
             }
