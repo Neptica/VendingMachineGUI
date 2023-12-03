@@ -12,12 +12,12 @@ namespace VendingMachineGUI
 {
     public partial class Form1 : Form
     {
-        private const bool DEVELOPERMODE = true;
-        private string[] userinput = { " ", " " };
+        private VendingMachine machine;
+        private const bool DEVELOPERMODE = false;
+        private string[] userinput = { "", "" };
         private string pwAttempt = "";
         private string password = "A1D4B2C3";
         private bool privileged = false;
-        private bool firstTime = true;
         private string[] productNames = {
             "Cool Ranch Doritos",
             "Doritos",
@@ -36,74 +36,58 @@ namespace VendingMachineGUI
             "Watermelon Gum",
             "Mentos"
         };
+
         public Form1()
         {
             InitializeComponent();
+            PictureBox[] pictureArray = { // it won't let me initialize this array outside a method.
+                ranchDoritosFalling,
+                ranchDoritos,
+                nachoDoritosFalling,
+                nachoDoritos,
+                cheetosFalling,
+                cheetos,
+                funyunsFalling,
+                funyons,
+                snickersFalling,
+                snickers,
+                milkywayFalling,
+                milkyway,
+                twixFalling,
+                twix,
+                threeMusketFalling,
+                threeMusket,
+                waterFalling,
+                water,
+                redGatoradeFalling,
+                redGatorade,
+                orangeGatoradeFalling,
+                orangeGatorade,
+                blueGatoradeFalling,
+                blueGatorade,
+                spearmintGumFalling,
+                spearmintGum,
+                peppermintGumFalling,
+                peppermintGum,
+                watermelonGumFalling,
+                watermelonGum,
+                mentosFalling,
+                mentos
+            };
+            machine = new VendingMachine(productNames, pictureArray);
+            textBox2.Text = "Welcome to Vending Machine";
+            textBox3.Text = machine.currentCoins.getValue().ToString("C");
         }
 
-        private VendingMachine machine;
+        
 
-        private void adjustDisplay(int input)
+        private void Keypad(object sender, EventArgs e)
         {
-            pwAttempt += input;
-            userinput[1] = Convert.ToString(input);
-            DisplayUserInput();
-        }
-        private void adjustDisplay(string input)
-        {
-            pwAttempt += input;
-            userinput[0] = input;
-            DisplayUserInput();
-        }
-        private void adjustDisplay()
-        {
-            userinput[0] = "";
-            userinput[1] = "";
-            pwAttempt = "";
-            DisplayUserInput();
-        }
-        private void DisplayUserInput()
-        {
-            if (DEVELOPERMODE) textBox2.Text = pwAttempt; // this is displayed for developer convenience
-            textBox1.Text = string.Join("", userinput);
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            adjustDisplay("A");
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            adjustDisplay("B");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            adjustDisplay("C");
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            adjustDisplay("D");
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            adjustDisplay(1);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            adjustDisplay(2);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            adjustDisplay(3);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            adjustDisplay(4);
+            Button sentBy = (Button)sender;
+            string key = sentBy.Text;
+            int result;
+            if (int.TryParse(key, out result)) adjustDisplay(result);
+            else adjustDisplay(key);
         }
 
         private void button9_Click(object sender, EventArgs e) // Hashtag (Clear and Login Attempt)
@@ -136,51 +120,15 @@ namespace VendingMachineGUI
         private void button10_Click(object sender, EventArgs e) // Eject
         {
             if (privileged)
-            {
-                if (firstTime)
-                {
-                    PictureBox[] pictureArray = { // it won't let me initialize this array outside of a method.
-                        ranchDoritosFalling,
-                        ranchDoritos,
-                        nachoDoritosFalling,
-                        nachoDoritos,
-                        cheetosFalling,
-                        cheetos,
-                        funyunsFalling,
-                        funyons,
-                        snickersFalling,
-                        snickers,
-                        milkywayFalling,
-                        milkyway,
-                        twixFalling,
-                        twix,
-                        threeMusketFalling,
-                        threeMusket,
-                        waterFalling,
-                        water,
-                        redGatoradeFalling,
-                        redGatorade,
-                        orangeGatoradeFalling,
-                        orangeGatorade,
-                        blueGatoradeFalling,
-                        blueGatorade,
-                        spearmintGumFalling,
-                        spearmintGum,
-                        peppermintGumFalling,
-                        peppermintGum,
-                        watermelonGumFalling,
-                        watermelonGum,
-                        mentosFalling,
-                        mentos
-                    };
-                machine = new VendingMachine(productNames, pictureArray);
-                }
+            { 
                 machine.restockProducts();
                 textBox2.Text = "Restocked"; // functionality not added yet
             }
             else
             {
                 adjustDisplay();
+                textBox2.Text = string.Format("Removed {0}", machine.removeMoney("current").ToString("C"));
+                textBox3.Text = machine.currentCoins.getValue().ToString("C");
             }
         }
 
@@ -196,8 +144,7 @@ namespace VendingMachineGUI
             }
             else
             {
-                string input = textBox1.Text.Replace(" ", "");
-                textBox2.Text = Convert.ToString(input.Length);
+                string input = textBox1.Text.Replace(" ", ""); // removes whitespaces DO NOT REMOVE
                 if (input.Length == 2)
                 {
                     int index = 99;
@@ -272,12 +219,64 @@ namespace VendingMachineGUI
                             break;
                     }
                     textBox2.Text = machine.buyProduct(index);
-                }
-                else
-                {
-                    textBox2.Text = string.Format("Not a valid item {0}", textBox1.Text.Length);
+                    textBox3.Text = machine.currentCoins.getValue().ToString("C");
                 }
             }
+        }
+
+        private void Money(object sender, EventArgs e)
+        {
+            Button sentBy = (Button)sender;
+            string amount = sentBy.Text;
+            switch (amount)
+            {
+                case "5¢":
+                    machine.addCoin(Coin.NICKEL);
+                    break;
+                case "10¢":
+                    machine.addCoin(Coin.DIME);
+                    break;
+                case "25¢":
+                    machine.addCoin(Coin.NICKEL);
+                    break;
+                case "50¢":
+                    machine.addCoin(Coin.HALFDOLLAR);
+                    break;
+                case "$1":
+                    machine.addCoin(Coin.DOLLAR);
+                    break;
+                case "$5":
+                    machine.addCoin(Coin.FIVER);
+                    break;
+                default:
+                    textBox2.Text = "something went wrong, in Money method";
+                    break;
+            }
+            textBox3.Text = machine.currentCoins.getValue().ToString("C");
+        }
+        private void adjustDisplay(int input)
+        {
+            pwAttempt += input;
+            userinput[1] = Convert.ToString(input);
+            DisplayUserInput();
+        }
+        private void adjustDisplay(string input)
+        {
+            pwAttempt += input;
+            userinput[0] = input;
+            DisplayUserInput();
+        }
+        private void adjustDisplay()
+        {
+            userinput[0] = "";
+            userinput[1] = "";
+            pwAttempt = "";
+            DisplayUserInput();
+        }
+        private void DisplayUserInput()
+        {
+            if (DEVELOPERMODE) textBox2.Text = pwAttempt; // this is displayed for developer convenience
+            textBox1.Text = string.Join("", userinput);
         }
     }
 }

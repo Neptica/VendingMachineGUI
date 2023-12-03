@@ -13,6 +13,7 @@ namespace VendingMachineGUI
         public static Coin NICKEL = new Coin(.05, "nickel");
         public static Coin DIME = new Coin(.10, "dime");
         public static Coin QUARTER = new Coin(.25, "quarter");
+        public static Coin HALFDOLLAR = new Coin(.50, "half dollar");
         public static Coin DOLLAR = new Coin(1.0, "dollar");
         public static Coin FIVER = new Coin(5.0, "five dollar bill");
 

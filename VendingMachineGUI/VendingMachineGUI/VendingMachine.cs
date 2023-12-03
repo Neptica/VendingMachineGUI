@@ -9,10 +9,10 @@ namespace VendingMachineGUI
     class VendingMachine
     {
         private List<Product> products;
-        public CoinBox coins;
-        public CoinBox currentCoins;
+        public CoinBox revenueBox = new CoinBox();
+        public CoinBox currentCoins = new CoinBox();
         
-        public VendingMachine(string[] productNames, System.Windows.Forms.PictureBox[] boxes) // Fix this
+        public VendingMachine(string[] productNames, System.Windows.Forms.PictureBox[] boxes)
         {
             products = new List<Product>();
             int elementStart = 0;
@@ -24,10 +24,7 @@ namespace VendingMachineGUI
                 elementStart += 2;
                 products.Add(new Product(productNames[i], 1.25, 0, pictureBoxes));
             }
-            coins = new CoinBox();
-            currentCoins = new CoinBox();
         }
-
 
         public void restockProducts()
         {
@@ -55,16 +52,16 @@ namespace VendingMachineGUI
             products.Add(p);
         }
 
-        public double addCoin(Coin c)
+        public void addCoin(Coin c)
         {
             currentCoins.addCoin(c);
-            return currentCoins.getValue();
+            //return currentCoins.getValue();
         }
 
         public string buyProduct(int element)
         {
-            if (element == 99) return ("Not a valid item");
-            if (products[element].Quantity == 0) return string.Format("Out of Product {0}", products[element].getDescription());
+            if (element == 99) return "Not a valid input";
+            if (products[element].Quantity == 0) return "Out of Product";
             else
             {
                 double balance = currentCoins.getValue();
@@ -73,13 +70,13 @@ namespace VendingMachineGUI
                 {
                     double payment = balance - price;
                     products[element].Quantity--;
-                    coins.addCoins(currentCoins);
+                    revenueBox.addCoins(currentCoins);
                     currentCoins.removeAllCoins();
-                    return string.Format("Purchased {0}", products[element].getDescription());
+                    return "Thank you for your Purchase";
                 }
                 else
                 {
-                    return string.Format("Insufficient money, {0} inserted", balance.ToString("C"));
+                    return "Insufficient money";
                 }
             }
         }
@@ -89,11 +86,21 @@ namespace VendingMachineGUI
             return products.Count > 0;
         }
 
-        public double removeMoney()
+        public double removeMoney(string mode)
         {
-            double r = coins.getValue();
-            coins.removeAllCoins();
-            return r;
+            if (mode == "revenue")
+            {
+                double r = revenueBox.getValue();
+                revenueBox.removeAllCoins();
+                return r;
+            }
+            else
+            {
+                double r = currentCoins.getValue();
+                currentCoins.removeAllCoins();
+                return r;
+            }
+            
         }
     }
 }
