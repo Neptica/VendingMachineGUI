@@ -8,6 +8,7 @@ namespace VendingMachineGUI
 {
     class VendingMachine
     {
+        const decimal PRICE = 1.25M;
         private List<Product> products;
         public CoinBox revenueBox = new CoinBox();
         public decimal Inserted { get; set; }
@@ -23,7 +24,7 @@ namespace VendingMachineGUI
                 pictureBoxes[0] = boxes[elementStart];
                 pictureBoxes[1] = boxes[elementStart + 1];
                 elementStart += 2;
-                products.Add(new Product(productNames[i], 1.25, 0, pictureBoxes));
+                products.Add(new Product(productNames[i], PRICE, 0, pictureBoxes));
             }
         }
 
@@ -84,7 +85,7 @@ namespace VendingMachineGUI
             return products.Count > 0;
         }
 
-        public decimal removeMoney(string mode) // decimal has more precision than double (double doesn't calculate right)
+        public decimal removeMoney(string mode) // decimal has more precision than decimal (decimal doesn't calculate right)
         {
             if (mode == "revenue")
             {

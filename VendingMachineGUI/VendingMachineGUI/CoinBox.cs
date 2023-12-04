@@ -42,7 +42,7 @@ namespace VendingMachineGUI
         {
             box = box.OrderByDescending(coin => coin.getValue()).ToList();
             int elementToAdd = 0;
-            while (amount > 0.04)
+            while (amount != 0M)
             {
                 Console.WriteLine(box.Count);
                 decimal working = box[elementToAdd].getValue();

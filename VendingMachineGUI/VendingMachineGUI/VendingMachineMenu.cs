@@ -42,7 +42,7 @@ namespace VendingMachineGUI
         //                WriteLine("Description: ");
         //                string description = ReadLine();
         //                WriteLine("Price: ");
-        //                double price = Convert.ToDouble(ReadLine());
+        //                decimal price = Convert.ToDouble(ReadLine());
         //                WriteLine("Quantity: ");
         //                int quantity = Convert.ToInt32(ReadLine());
         //                // ReadLine();
@@ -65,7 +65,7 @@ namespace VendingMachineGUI
         //                }
         //                break;
         //            case 'R':
-        //                double totalInCoinBox = machine.removeMoney();
+        //                decimal totalInCoinBox = machine.removeMoney();
         //                String totalString = totalInCoinBox.ToString("C");
         //                WriteLine("Removed: " + totalString);
         //                break;

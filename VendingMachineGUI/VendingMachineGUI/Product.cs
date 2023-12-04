@@ -9,10 +9,10 @@ namespace VendingMachineGUI
     public class Product
     {
         private string description;
-        private double price;
+        private decimal price;
         public System.Windows.Forms.PictureBox Falling;
         public System.Windows.Forms.PictureBox Display;
-        public Product(string aDescription, double aPrice, int aQuantity, System.Windows.Forms.PictureBox[] pictures)
+        public Product(string aDescription, decimal aPrice, int aQuantity, System.Windows.Forms.PictureBox[] pictures)
         {
             description = aDescription;
             price = aPrice;
@@ -28,7 +28,7 @@ namespace VendingMachineGUI
             return description;
         }
 
-        public double getPrice()
+        public decimal getPrice()
         {
             return price;
         }
