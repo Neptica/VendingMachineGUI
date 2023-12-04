@@ -16,7 +16,7 @@ namespace VendingMachineGUI
         private const bool DEVELOPERMODE = false;
         private string[] userinput = { "", "" };
         private string pwAttempt = "";
-        private string password = "A1D4B2C3";
+        private string password = "A";
         private bool privileged = false;
         private string[] productNames = {
             "Cool Ranch Doritos",
@@ -72,7 +72,7 @@ namespace VendingMachineGUI
                 watermelonGumFalling,
                 watermelonGum,
                 mentosFalling,
-                mentos
+                mentos,
             };
             machine = new VendingMachine(productNames, pictureArray);
             textBox2.Text = "Welcome to Vending Machine";
@@ -218,7 +218,7 @@ namespace VendingMachineGUI
                             textBox2.Text = "not possible";
                             break;
                     }
-                    textBox2.Text = machine.buyProduct(index);
+                    textBox2.Text = machine.buyProduct(index, vendingMachineBottom, timer1);
                     textBox3.Text = machine.Inserted.ToString("C");
                 }
             }
@@ -277,6 +277,32 @@ namespace VendingMachineGUI
         {
             if (DEVELOPERMODE) textBox2.Text = pwAttempt; // this is displayed for developer convenience
             textBox1.Text = string.Join("", userinput);
+        }
+
+        public static void MakePictureFall(System.Windows.Forms.Timer timer)
+        {
+            int tempTop = VendingMachine.falling.Top; // for resetting it to starting position
+            timer.Start();
+            if(VendingMachine.falling.Top >= VendingMachine.vendingMachineBot.Top)
+            {
+                timer.Stop();
+                Console.WriteLine("Hi"); // Look at this
+                VendingMachine.falling.Top = tempTop + 100;
+            }
+        }
+
+        private int velocity = 0;
+        public async void timer1_Tick(object sender, EventArgs e)
+        {
+            const int ACCELERATION = 1;
+            velocity += ACCELERATION;
+            VendingMachine.falling.Top += (int)velocity;
+            if (VendingMachine.falling.Top >= VendingMachine.vendingMachineBot.Top)
+            {
+                velocity = 0;
+                timer1.Stop();
+            }
+            await Task.Delay(3000);
         }
     }
 }

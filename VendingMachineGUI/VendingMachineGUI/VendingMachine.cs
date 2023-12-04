@@ -12,6 +12,8 @@ namespace VendingMachineGUI
         private List<Product> products;
         public CoinBox revenueBox = new CoinBox();
         public decimal Inserted { get; set; }
+        public static System.Windows.Forms.PictureBox falling;
+        public static System.Windows.Forms.PictureBox vendingMachineBot;
 
         public VendingMachine(string[] productNames, System.Windows.Forms.PictureBox[] boxes)
         {
@@ -60,17 +62,29 @@ namespace VendingMachineGUI
             Inserted += c.getValue();
         }
 
-        public string buyProduct(int element)
+        public string buyProduct(int element, System.Windows.Forms.PictureBox vendingMachineBottom, System.Windows.Forms.Timer timer)
         {
             if (element == 99) return "Not a valid input";
             if (products[element].Quantity == 0) return "Out of Product";
             else
             {
+
                 decimal price = products[element].getPrice();
                 if (price <= Inserted)
                 {
                     Inserted -= price;
                     products[element].Quantity--;
+                    falling = products[element].Falling;
+                    vendingMachineBot = vendingMachineBottom;
+                    Form1.MakePictureFall(timer);
+                    if (products[element].Quantity == 1)
+                    {
+                        products[element].Display.Visible = false;
+                    }
+                    if (products[element].Quantity == 0)
+                    {
+                        products[element].Falling.Visible = false;
+                    }
                     return "Thank you for your Purchase";
                 }
                 else
@@ -101,6 +115,5 @@ namespace VendingMachineGUI
                 else return r;
             }
         }
-
     }
 }

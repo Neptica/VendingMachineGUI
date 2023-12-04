@@ -29,6 +29,7 @@ namespace VendingMachineGUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -99,6 +100,7 @@ namespace VendingMachineGUI
             this.vendingMachine = new System.Windows.Forms.PictureBox();
             this.mentosFalling = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.mentos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watermelonGumFalling)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.watermelonGum)).BeginInit();
@@ -820,11 +822,17 @@ namespace VendingMachineGUI
             this.textBox3.TabIndex = 70;
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 20;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(432, 618);
+            this.Controls.Add(this.vendingMachineBottom);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.mentosFalling);
             this.Controls.Add(this.mentos);
@@ -893,7 +901,6 @@ namespace VendingMachineGUI
             this.Controls.Add(this.ranchDoritos);
             this.Controls.Add(this.nachoDoritos);
             this.Controls.Add(this.snickers);
-            this.Controls.Add(this.vendingMachineBottom);
             this.Controls.Add(this.vendingMachine);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -1008,6 +1015,7 @@ namespace VendingMachineGUI
         private System.Windows.Forms.PictureBox mentos;
         private System.Windows.Forms.PictureBox mentosFalling;
         private System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.Timer timer1;
     }
 }
 
