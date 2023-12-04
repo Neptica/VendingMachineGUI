@@ -79,8 +79,6 @@ namespace VendingMachineGUI
             textBox3.Text = machine.Inserted.ToString("C");
         }
 
-
-
         private void Keypad(object sender, EventArgs e)
         {
             Button sentBy = (Button)sender;
@@ -103,7 +101,8 @@ namespace VendingMachineGUI
                 }
                 else
                 {
-                    textBox2.Text = "Customer Mode";
+                    textBox2.Text = string.Format("Profited {0} and Entering Customer Mode", machine.removeMoney("revenue"));
+                    textBox3.Text = "0.00"; // if money is "inserted" (still valid) the customer will be right there to receive it.
                     button10.Text = "Eject";
                     button11.Text = "Purchase";
                 }
