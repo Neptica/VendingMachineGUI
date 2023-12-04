@@ -102,6 +102,7 @@ namespace VendingMachineGUI
                 else
                 {
                     textBox2.Text = string.Format("Profited {0} and Entering Customer Mode", machine.removeMoney("revenue"));
+                    machine.Inserted = 0; // machine will crash if customer tries to get change from an empty machine
                     textBox3.Text = "0.00"; // if money is "inserted" (still valid) the customer will be right there to receive it.
                     button10.Text = "Eject";
                     button11.Text = "Purchase";
