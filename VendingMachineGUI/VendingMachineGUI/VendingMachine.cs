@@ -9,7 +9,7 @@ namespace VendingMachineGUI
     class VendingMachine
     {
         const decimal PRICE = 1.25M;
-        private List<Product> products;
+        public static List<Product> products;
         private decimal amountTakenFromChangeBox = 0;
         public CoinBox revenueBox = new CoinBox();
         public decimal Inserted { get; set; }
@@ -77,15 +77,7 @@ namespace VendingMachineGUI
                     products[element].Quantity--;
                     falling = products[element].Falling;
                     vendingMachineBot = vendingMachineBottom;
-                    Form1.MakePictureFall(timer);
-                    if (products[element].Quantity == 1)
-                    {
-                        products[element].Display.Visible = false;
-                    }
-                    if (products[element].Quantity == 0)
-                    {
-                        products[element].Falling.Visible = false;
-                    }
+                    Form1.MakePictureFall(timer, element);
                     return "Thank you for your Purchase";
                 }
                 else

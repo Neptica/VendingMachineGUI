@@ -278,31 +278,41 @@ namespace VendingMachineGUI
             if (DEVELOPERMODE) textBox2.Text = pwAttempt; // this is displayed for developer convenience
             textBox1.Text = string.Join("", userinput);
         }
-
-        public static void MakePictureFall(System.Windows.Forms.Timer timer)
+        public static void MakePictureFall(System.Windows.Forms.Timer timer, int element)
         {
-            int tempTop = VendingMachine.falling.Top; // for resetting it to starting position
+            i = element;
             timer.Start();
-            if(VendingMachine.falling.Top >= VendingMachine.vendingMachineBot.Top)
-            {
-                timer.Stop();
-                Console.WriteLine("Hi"); // Look at this
-                VendingMachine.falling.Top = tempTop + 100;
-            }
         }
 
         private int velocity = 0;
+        private int ticks = 0;
+        private int tempTop;
+        private static int i;
         public async void timer1_Tick(object sender, EventArgs e)
         {
+            if (ticks == 0)
+            {
+                tempTop = VendingMachine.falling.Top; // for resetting it to starting position
+            }
+            ++ticks;
             const int ACCELERATION = 1;
             velocity += ACCELERATION;
             VendingMachine.falling.Top += (int)velocity;
             if (VendingMachine.falling.Top >= VendingMachine.vendingMachineBot.Top)
             {
                 velocity = 0;
+                ticks = 0;
+                VendingMachine.falling.Top = tempTop;
                 timer1.Stop();
+                if (VendingMachine.products[i].Quantity == 1)
+                {
+                    VendingMachine.products[i].Display.Visible = false;
+                }
+                if (VendingMachine.products[i].Quantity == 0)
+                {
+                    VendingMachine.products[i].Falling.Visible = false;
+                }
             }
-            await Task.Delay(3000);
         }
     }
 }
