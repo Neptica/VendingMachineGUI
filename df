@@ -1,0 +1,53 @@
+[33mcommit e7c81ce6b164c0106321fd47f58670949c467c4f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: xavierpalmer21 <xpalmer@blc.edu>
+Date:   Fri Dec 1 13:31:01 2023 -0600
+
+    Finished adding product images and hid them from the start up.
+
+[33mcommit 1390652723aad7fd3736f6ae5ad0798c27e0900d[m
+Author: xavierpalmer21 <xpalmer@blc.edu>
+Date:   Fri Dec 1 12:24:00 2023 -0600
+
+    Finished adding all of the products, and I made them all hidden on start up.
+
+[33mcommit 3a8eb4b7e0eb4baa9cc89ac69fc17aef69391e09[m
+Author: Michael Mumme <michaelmumme@me.com>
+Date:   Thu Nov 30 19:41:12 2023 -0600
+
+    adding backend work
+
+[33mcommit 1b8fa4f5f318a3cc8a275683e525343b6b5fe9ce[m
+Author: Michael Mumme <michaelmumme@me.com>
+Date:   Thu Nov 30 17:51:42 2023 -0600
+
+    Adding code files to GUI codebase (unreferenced)
+
+[33mcommit be7351adff93518a4c285df774bcfbad7c171b04[m
+Author: Michael Mumme <neptica@hotmail.com>
+Date:   Thu Nov 30 14:24:12 2023 -0600
+
+    Added button functionality
+
+[33mcommit 82525af1ec5cf22aeea80d3ceda9aaf2f0fefcc5[m
+Author: Michael Mumme <neptica@hotmail.com>
+Date:   Thu Nov 30 12:12:03 2023 -0600
+
+    Added user interface to the GUI
+
+[33mcommit fcaa5ab4146fb177e4bc32fec1e8f62eef33d010[m
+Author: Michael Mumme <neptica@hotmail.com>
+Date:   Thu Nov 30 11:58:08 2023 -0600
+
+    test commit
+
+[33mcommit 00ce2da31dd2536955c8e008c3770387452a3a49[m
+Author: xavierpalmer21 <xpalmer@blc.edu>
+Date:   Wed Nov 29 12:29:47 2023 -0600
+
+    first
+
+[33mcommit d027df016a0af7860a43283ed1d4a544fddeec35[m
+Author: Michael <59067745+Neptica@users.noreply.github.com>
+Date:   Wed Nov 29 11:55:25 2023 -0600
+
+    Initial commit

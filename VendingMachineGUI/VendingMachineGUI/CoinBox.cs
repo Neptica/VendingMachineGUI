@@ -38,19 +38,19 @@ namespace VendingMachineGUI
             box.Clear();
         }
 
-        public decimal removePartial(decimal amount) // removes the amount specificed in coins
+        public decimal removePartial(decimal amount) // removes the amount possible and returns what must be taken from ChangeBox
         {
             box = box.OrderByDescending(coin => coin.getValue()).ToList();
             int elementToAdd = 0;
             while (amount != 0M)
             {
-                Console.WriteLine(box.Count);
+                if (elementToAdd + 1 == box.Count) return amount;
                 decimal working = box[elementToAdd].getValue();
                 if (working > amount)
                 {
                     elementToAdd++;
                     Console.WriteLine("Index increasing {0} > {1}", working, amount);
-                    if (elementToAdd + 1 == box.Count) return amount;
+                    
                 }
                 else
                 {
@@ -60,6 +60,28 @@ namespace VendingMachineGUI
                 Console.WriteLine("amount = {0}", amount);
             }
             return amount;
+        }
+
+        public static decimal removeRest(decimal amount)
+        {
+            decimal takenAsChange = amount;
+            int elementToAdd = 0;
+            while (amount != 0M)
+            {
+                if (elementToAdd + 1 == Coin.coinArray.Length) return amount;
+                decimal working = Coin.coinArray[elementToAdd].getValue();
+                if (working > amount)
+                {
+                    elementToAdd++;
+                    Console.WriteLine("Index increasing {0} > {1}", working, amount);
+                }
+                else
+                {
+                    amount -= working;
+                }
+                Console.WriteLine("amount = {0}", amount);
+            }
+            return takenAsChange;
         }
     }
 }

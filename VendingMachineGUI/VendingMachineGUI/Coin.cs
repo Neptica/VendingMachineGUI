@@ -16,6 +16,7 @@ namespace VendingMachineGUI
         public static Coin HALFDOLLAR = new Coin(.50M, "half dollar");
         public static Coin DOLLAR = new Coin(1.0M, "dollar");
         public static Coin FIVER = new Coin(5.0M, "five dollar bill");
+        public static Coin[] coinArray = { DOLLAR, HALFDOLLAR, QUARTER, DIME, NICKEL };
 
         public Coin(decimal aValue, string aName)
         {

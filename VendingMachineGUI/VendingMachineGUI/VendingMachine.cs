@@ -10,6 +10,7 @@ namespace VendingMachineGUI
     {
         const decimal PRICE = 1.25M;
         private List<Product> products;
+        private decimal amountTakenFromChangeBox = 0;
         public CoinBox revenueBox = new CoinBox();
         public decimal Inserted { get; set; }
         public static System.Windows.Forms.PictureBox falling;
@@ -103,16 +104,18 @@ namespace VendingMachineGUI
         {
             if (mode == "revenue")
             {
-                decimal r = revenueBox.getValue();
+                decimal r = revenueBox.getValue() - amountTakenFromChangeBox;
+                amountTakenFromChangeBox = 0;
                 revenueBox.removeAllCoins();
                 return r;
             }
             else
             {
                 decimal r = Inserted;
-                Inserted = revenueBox.removePartial(Inserted);
-                if (Inserted > 4) return Inserted; // C# has difficulty with precision. 1.5 - 0.5 = 1.0000001 somehow
-                else return r;
+                Inserted = revenueBox.removePartial(Inserted); // removes the amount possible and returns what must be taken from ChangeBox
+                if (Inserted > 4) amountTakenFromChangeBox = CoinBox.removeRest(Inserted); // Taken from change box.
+                Inserted = 0;
+                return r;
             }
         }
     }

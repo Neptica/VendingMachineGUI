@@ -11,7 +11,7 @@ namespace VendingMachineGUI
     class VendingMachineMenu
     {
         // private string input;
-        private static Coin[] COINS = {
+        public static Coin[] COINS = {
     Coin.NICKEL, Coin.DIME, Coin.QUARTER, Coin.DOLLAR, Coin.FIVER
   };
 
