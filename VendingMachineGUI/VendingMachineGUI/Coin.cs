@@ -8,7 +8,7 @@ namespace VendingMachineGUI
 {
     public class Coin
     {
-        private double value;
+        private decimal value;
         private string name;
         public static Coin NICKEL = new Coin(.05, "nickel");
         public static Coin DIME = new Coin(.10, "dime");
@@ -22,7 +22,7 @@ namespace VendingMachineGUI
             value = aValue;
             name = aName;
         }
-        public double getValue()
+        public decimal getValue()
         {
             return value;
         }

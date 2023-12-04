@@ -76,10 +76,10 @@ namespace VendingMachineGUI
             };
             machine = new VendingMachine(productNames, pictureArray);
             textBox2.Text = "Welcome to Vending Machine";
-            textBox3.Text = machine.currentCoins.getValue().ToString("C");
+            textBox3.Text = machine.Inserted.ToString("C");
         }
 
-        
+
 
         private void Keypad(object sender, EventArgs e)
         {
@@ -120,7 +120,7 @@ namespace VendingMachineGUI
         private void button10_Click(object sender, EventArgs e) // Eject
         {
             if (privileged)
-            { 
+            {
                 machine.restockProducts();
                 textBox2.Text = "Restocked"; // functionality not added yet
             }
@@ -128,7 +128,7 @@ namespace VendingMachineGUI
             {
                 adjustDisplay();
                 textBox2.Text = string.Format("Removed {0}", machine.removeMoney("current").ToString("C"));
-                textBox3.Text = machine.currentCoins.getValue().ToString("C");
+                textBox3.Text = machine.Inserted.ToString("C");
             }
         }
 
@@ -219,7 +219,7 @@ namespace VendingMachineGUI
                             break;
                     }
                     textBox2.Text = machine.buyProduct(index);
-                    textBox3.Text = machine.currentCoins.getValue().ToString("C");
+                    textBox3.Text = machine.Inserted.ToString("C");
                 }
             }
         }
@@ -252,7 +252,7 @@ namespace VendingMachineGUI
                     textBox2.Text = "something went wrong, in Money method";
                     break;
             }
-            textBox3.Text = machine.currentCoins.getValue().ToString("C");
+            textBox3.Text = machine.Inserted.ToString("C");
         }
         private void adjustDisplay(int input)
         {

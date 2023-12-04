@@ -25,9 +25,9 @@ namespace VendingMachineGUI
             box.AddRange(other.box);
         }
 
-        public double getValue()
+        public decimal getValue()
         {
-            double total = 0;
+            decimal total = 0;
             foreach (Coin c in box) total += c.getValue();
             return total;
         }
@@ -36,6 +36,30 @@ namespace VendingMachineGUI
         public void removeAllCoins()
         {
             box.Clear();
+        }
+
+        public decimal removePartial(decimal amount) // removes the amount specificed in coins
+        {
+            box = box.OrderByDescending(coin => coin.getValue()).ToList();
+            int elementToAdd = 0;
+            while (amount > 0.04)
+            {
+                Console.WriteLine(box.Count);
+                decimal working = box[elementToAdd].getValue();
+                if (working > amount)
+                {
+                    elementToAdd++;
+                    Console.WriteLine("Index increasing {0} > {1}", working, amount);
+                    if (elementToAdd + 1 == box.Count) return amount;
+                }
+                else
+                {
+                    amount -= working;
+                    box.RemoveAt(elementToAdd);
+                }
+                Console.WriteLine("amount = {0}", amount);
+            }
+            return amount;
         }
     }
 }

@@ -10,10 +10,11 @@ namespace VendingMachineGUI
     {
         private List<Product> products;
         public CoinBox revenueBox = new CoinBox();
-        public CoinBox currentCoins = new CoinBox();
-        
+        public decimal Inserted { get; set; }
+
         public VendingMachine(string[] productNames, System.Windows.Forms.PictureBox[] boxes)
         {
+            Inserted = 0;
             products = new List<Product>();
             int elementStart = 0;
             System.Windows.Forms.PictureBox[] pictureBoxes = new System.Windows.Forms.PictureBox[2];
@@ -54,8 +55,8 @@ namespace VendingMachineGUI
 
         public void addCoin(Coin c)
         {
-            currentCoins.addCoin(c);
-            //return currentCoins.getValue();
+            revenueBox.addCoin(c);
+            Inserted += c.getValue();
         }
 
         public string buyProduct(int element)
@@ -64,14 +65,11 @@ namespace VendingMachineGUI
             if (products[element].Quantity == 0) return "Out of Product";
             else
             {
-                double balance = currentCoins.getValue();
-                double price = products[element].getPrice();
-                if (price <= balance)
+                decimal price = products[element].getPrice();
+                if (price <= Inserted)
                 {
-                    double payment = balance - price;
+                    Inserted -= price;
                     products[element].Quantity--;
-                    revenueBox.addCoins(currentCoins);
-                    currentCoins.removeAllCoins();
                     return "Thank you for your Purchase";
                 }
                 else
@@ -86,21 +84,22 @@ namespace VendingMachineGUI
             return products.Count > 0;
         }
 
-        public double removeMoney(string mode)
+        public decimal removeMoney(string mode) // decimal has more precision than double (double doesn't calculate right)
         {
             if (mode == "revenue")
             {
-                double r = revenueBox.getValue();
+                decimal r = revenueBox.getValue();
                 revenueBox.removeAllCoins();
                 return r;
             }
             else
             {
-                double r = currentCoins.getValue();
-                currentCoins.removeAllCoins();
-                return r;
+                decimal r = Inserted;
+                Inserted = revenueBox.removePartial(Inserted);
+                if (Inserted > 4) return Inserted; // C# has difficulty with precision. 1.5 - 0.5 = 1.0000001 somehow
+                else return r;
             }
-            
         }
+
     }
 }
