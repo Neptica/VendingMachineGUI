@@ -96,6 +96,7 @@ namespace VendingMachineGUI
         {
             if (mode == "revenue")
             {
+                Console.WriteLine(amountTakenFromChangeBox);
                 decimal r = revenueBox.getValue() - amountTakenFromChangeBox;
                 amountTakenFromChangeBox = 0;
                 revenueBox.removeAllCoins();
@@ -105,7 +106,7 @@ namespace VendingMachineGUI
             {
                 decimal r = Inserted;
                 Inserted = revenueBox.removePartial(Inserted); // removes the amount possible and returns what must be taken from ChangeBox
-                if (Inserted > 4) amountTakenFromChangeBox = CoinBox.removeRest(Inserted); // Taken from change box.
+                if (Inserted > 0) amountTakenFromChangeBox = CoinBox.removeRest(Inserted); // Taken from change box.
                 Inserted = 0;
                 return r;
             }

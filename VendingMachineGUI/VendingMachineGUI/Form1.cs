@@ -95,13 +95,16 @@ namespace VendingMachineGUI
                 privileged = !privileged; // this flips the mode (exits admin mode the using the same password)
                 if (privileged)
                 {
+                    textBox1.Text = "";
                     textBox2.Text = "Priviliged Mode";
                     button10.Text = "Restock";
                     button11.Text = "Logout";
                 }
                 else
                 {
-                    textBox2.Text = string.Format("Profited {0} and Entering Customer Mode", machine.removeMoney("revenue").ToString("C"));
+                    string removed = machine.removeMoney("revenue").ToString("C");
+                    if (removed == "$0.00") textBox2.Text = "Nothing to Remove";
+                    else textBox2.Text = string.Format("Profited {0} and Entering Customer Mode", removed);
                     machine.Inserted = 0; // machine will crash if customer tries to get change from an empty machine
                     textBox3.Text = "0.00"; // if money is "inserted" (still valid) the customer will be right there to receive it.
                     button10.Text = "Eject";
@@ -127,7 +130,9 @@ namespace VendingMachineGUI
             else
             {
                 adjustDisplay();
-                textBox2.Text = string.Format("Removed {0}", machine.removeMoney("current").ToString("C"));
+                string removed = machine.removeMoney("current").ToString("C");
+                if (removed == "$0.00") textBox2.Text = "Nothing to Eject";
+                else textBox2.Text = string.Format("Removed {0}", removed);
                 textBox3.Text = machine.Inserted.ToString("C");
             }
         }
@@ -141,6 +146,7 @@ namespace VendingMachineGUI
                 button11.Text = "Purchase";
                 privileged = !privileged;
                 textBox2.Text = "Logged out"; // functionality not added yet
+                textBox1.Text = "";
             }
             else
             {
@@ -218,6 +224,9 @@ namespace VendingMachineGUI
                             textBox2.Text = "not possible";
                             break;
                     }
+                    textBox1.Text = "";
+                    userinput[0] = "";
+                    userinput[1] = "";
                     textBox2.Text = machine.buyProduct(index, vendingMachineBottom, timer1);
                     textBox3.Text = machine.Inserted.ToString("C");
                 }

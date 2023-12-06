@@ -50,7 +50,7 @@ namespace VendingMachineGUI
                 {
                     elementToAdd++;
                     Console.WriteLine("Index increasing {0} > {1}", working, amount);
-                    
+
                 }
                 else
                 {
@@ -73,13 +73,11 @@ namespace VendingMachineGUI
                 if (working > amount)
                 {
                     elementToAdd++;
-                    Console.WriteLine("Index increasing {0} > {1}", working, amount);
                 }
                 else
                 {
                     amount -= working;
                 }
-                Console.WriteLine("amount = {0}", amount);
             }
             return takenAsChange;
         }
