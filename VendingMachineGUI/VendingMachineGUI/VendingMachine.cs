@@ -111,5 +111,10 @@ namespace VendingMachineGUI
                 return r;
             }
         }
+
+        public decimal getMoney()
+        {
+            return revenueBox.getValue();
+        }
     }
 }
