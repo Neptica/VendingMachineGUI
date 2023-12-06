@@ -302,6 +302,8 @@ namespace VendingMachineGUI
             if (ticks == 0)
             {
                 tempTop = VendingMachine.falling.Top; // for resetting it to starting position
+                button11.BackColor = Color.DarkGray;
+                button11.Enabled = false;
             }
             ++ticks;
             const int ACCELERATION = 1;
@@ -309,6 +311,8 @@ namespace VendingMachineGUI
             VendingMachine.falling.Top += (int)velocity;
             if (VendingMachine.falling.Top >= VendingMachine.vendingMachineBot.Top)
             {
+                button11.BackColor = Color.FromArgb(224, 224, 224);
+                button11.Enabled = true;
                 velocity = 0;
                 ticks = 0;
                 VendingMachine.falling.Top = tempTop;
