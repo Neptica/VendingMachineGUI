@@ -86,6 +86,92 @@ namespace VendingMachineGUI
             int result;
             if (int.TryParse(key, out result)) adjustDisplay(result);
             else adjustDisplay(key);
+            if (!privileged)
+            {
+                if (userinput[0] != "" && userinput[1] != "")
+                {
+                    int index = 99;
+                    switch (userinput[0] + userinput[1])
+                    {
+                        case "A1":
+                            // code to purchase the first element
+                            index = 0;
+                            break;
+                        case "A2":
+                            // code to purchase the second element, etc
+                            index = 1;
+                            break;
+                        case "A3":
+                            // code to purchase the first element
+                            index = 2;
+                            break;
+                        case "A4":
+                            // code to purchase the second element, etc
+                            index = 3;
+                            break;
+                        case "B1":
+                            // code to purchase the first element
+                            index = 4;
+                            break;
+                        case "B2":
+                            // code to purchase the second element, etc
+                            index = 5;
+                            break;
+                        case "B3":
+                            // code to purchase the first element
+                            index = 6;
+                            break;
+                        case "B4":
+                            // code to purchase the second element, etc
+                            index = 7;
+                            break;
+                        case "C1":
+                            // code to purchase the first element
+                            index = 8;
+                            break;
+                        case "C2":
+                            // code to purchase the second element, etc
+                            index = 9;
+                            break;
+                        case "C3":
+                            // code to purchase the first element
+                            index = 10;
+                            break;
+                        case "C4":
+                            // code to purchase the second element, etc
+                            index = 11;
+                            break;
+                        case "D1":
+                            // code to purchase the first element
+                            index = 12;
+                            break;
+                        case "D2":
+                            // code to purchase the second element, etc
+                            index = 13;
+                            break;
+                        case "D3":
+                            // code to purchase the first element
+                            index = 14;
+                            break;
+                        case "D4":
+                            // code to purchase the second element, etc
+                            index = 15;
+                            break;
+                        default:
+                            textBox2.Text = "Not a product";
+                            break;
+                    }
+                    if (index != 99)
+                    {
+                        if (machine.getProductTypes()[index].Quantity == 0) textBox2.Text = "Out of Stock";
+                        else
+                        {
+                            textBox2.Text = productNames[index];
+                            textBox3.Text = machine.priceToString();
+                        }
+                    }
+                }
+            }
         }
 
         private void button9_Click(object sender, EventArgs e) // Hashtag (Clear and Login Attempt)
@@ -96,7 +182,7 @@ namespace VendingMachineGUI
                 if (privileged)
                 {
                     textBox1.Text = "";
-                    textBox2.Text = "Priviliged Mode: A# - view $, B# - Take $.";
+                    textBox2.Text = "Priviliged Mode:\r\nA# - View $\r\nB# - Take $";
                     button10.Text = "Restock";
                     button11.Text = "Logout";
                 }
@@ -114,11 +200,7 @@ namespace VendingMachineGUI
                 userinput[0] = " ";
                 userinput[1] = " ";
             }
-            else
-            {
-                adjustDisplay();
-            }
-            /* if (privileged)
+            else if (privileged)
             {
                 if (pwAttempt == "A")
                 {
@@ -129,11 +211,16 @@ namespace VendingMachineGUI
                 {
                     string removed = machine.removeMoney("revenue").ToString("C");
                     if (removed == "$0.00") textBox2.Text = "Nothing to Remove";
+                    else textBox2.Text = "Total amount of money removed from the machine" + removed;
                     machine.Inserted = 0; // machine will crash if customer tries to get change from an empty machine
                     textBox3.Text = "0.00"; // if money is "inserted" (still valid) the customer will be right there to receive it.
                     pwAttempt = "";
                 }
-            } */ // This is not working right now.
+            } 
+            else
+            {
+                adjustDisplay();
+            }
         }
 
         private void button10_Click(object sender, EventArgs e) // Eject
@@ -163,6 +250,8 @@ namespace VendingMachineGUI
                 privileged = !privileged;
                 textBox2.Text = "Logged out"; // functionality not added yet
                 textBox1.Text = "";
+                userinput[0] = "";
+                userinput[1] = "";
             }
             else
             {
@@ -257,21 +346,27 @@ namespace VendingMachineGUI
             {
                 case "5¢":
                     machine.addCoin(Coin.NICKEL);
+                    textBox2.Text = "You just inserted $0.05\r\n\r\n\r\nTotal:";
                     break;
                 case "10¢":
                     machine.addCoin(Coin.DIME);
+                    textBox2.Text = "You just inserted $0.10\r\n\r\n\r\nTotal:";
                     break;
                 case "25¢":
-                    machine.addCoin(Coin.NICKEL);
+                    machine.addCoin(Coin.QUARTER);
+                    textBox2.Text = "You just inserted $0.25\r\n\r\n\r\nTotal:";
                     break;
                 case "50¢":
                     machine.addCoin(Coin.HALFDOLLAR);
+                    textBox2.Text = "You just inserted $0.50\r\n\r\n\r\nTotal:";
                     break;
                 case "$1":
-                    machine.addCoin(Coin.DOLLAR);
+                    machine.addCoin(Coin.DOLLAR); 
+                    textBox2.Text = "You just inserted $1.00\r\n\r\n\r\nTotal:";
                     break;
                 case "$5":
                     machine.addCoin(Coin.FIVER);
+                    textBox2.Text = "You just inserted $5.00\r\n\r\n\r\nTotal:";
                     break;
                 default:
                     textBox2.Text = "something went wrong, in Money method";

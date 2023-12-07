@@ -8,7 +8,7 @@ namespace VendingMachineGUI
 {
     class VendingMachine
     {
-        const decimal PRICE = 1.25M;
+        private const decimal PRICE = 1.25M;
         public static List<Product> products;
         private decimal amountTakenFromChangeBox = 0;
         public CoinBox revenueBox = new CoinBox();
@@ -66,7 +66,7 @@ namespace VendingMachineGUI
         public string buyProduct(int element, System.Windows.Forms.PictureBox vendingMachineBottom, System.Windows.Forms.Timer timer)
         {
             if (element == 99) return "Not a valid input";
-            if (products[element].Quantity == 0) return "Out of Product";
+            if (products[element].Quantity == 0) return "Cannot Purchase: Out of Product";
             else
             {
 
@@ -115,6 +115,10 @@ namespace VendingMachineGUI
         public decimal getMoney()
         {
             return revenueBox.getValue();
+        }
+        public string priceToString()
+        {
+            return PRICE.ToString("C");
         }
     }
 }
