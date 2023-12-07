@@ -96,7 +96,7 @@ namespace VendingMachineGUI
                 if (privileged)
                 {
                     textBox1.Text = "";
-                    textBox2.Text = "Priviliged Mode: A# to view revenue, B# to remove it.";
+                    textBox2.Text = "Priviliged Mode: A# - view $, B# - Take $.";
                     button10.Text = "Restock";
                     button11.Text = "Logout";
                 }
@@ -122,7 +122,8 @@ namespace VendingMachineGUI
             {
                 if (pwAttempt == "A")
                 {
-                    textBox2.Text = String.Format("Total amount of money in the machine: {0}", machine.removeMoney("revenue").ToString("C"));
+                    textBox2.Text = String.Format("Total amount of money in the machine: {0}", machine.getMoney().ToString("C"));
+                    pwAttempt = "";
                 }
                 else if (pwAttempt == "B")
                 {
@@ -130,6 +131,7 @@ namespace VendingMachineGUI
                     if (removed == "$0.00") textBox2.Text = "Nothing to Remove";
                     machine.Inserted = 0; // machine will crash if customer tries to get change from an empty machine
                     textBox3.Text = "0.00"; // if money is "inserted" (still valid) the customer will be right there to receive it.
+                    pwAttempt = "";
                 }
             } */ // This is not working right now.
         }
