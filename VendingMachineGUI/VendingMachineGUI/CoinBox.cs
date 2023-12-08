@@ -15,37 +15,32 @@ namespace VendingMachineGUI
             box = new List<Coin>();
         }
 
-        public void addCoin(Coin c)
+        public void AddCoin(Coin c)
         {
             box.Add(c);
         }
 
-        public void addCoins(CoinBox other)
-        {
-            box.AddRange(other.box);
-        }
-
-        public decimal getValue()
+        public decimal GetValue()
         {
             decimal total = 0;
-            foreach (Coin c in box) total += c.getValue();
+            foreach (Coin c in box) total += c.GetValue();
             return total;
         }
 
         // return total value???
-        public void removeAllCoins()
+        public void RemoveAllCoins()
         {
             box.Clear();
         }
 
-        public decimal removePartial(decimal amount) // removes the amount possible and returns what must be taken from ChangeBox
+        public decimal RemovePartial(decimal amount) // removes the amount possible and returns what must be taken from ChangeBox
         {
-            box = box.OrderByDescending(coin => coin.getValue()).ToList();
+            box = box.OrderByDescending(coin => coin.GetValue()).ToList();
             int elementToAdd = 0;
             while (amount != 0M)
             {
                 if (elementToAdd + 1 == box.Count) return amount;
-                decimal working = box[elementToAdd].getValue();
+                decimal working = box[elementToAdd].GetValue();
                 if (working > amount)
                 {
                     elementToAdd++;
@@ -62,14 +57,14 @@ namespace VendingMachineGUI
             return amount;
         }
 
-        public static decimal removeRest(decimal amount)
+        public static decimal RemoveRest(decimal amount)
         {
             decimal takenAsChange = amount;
             int elementToAdd = 0;
             while (amount != 0M)
             {
                 if (elementToAdd + 1 == Coin.coinArray.Length) return amount;
-                decimal working = Coin.coinArray[elementToAdd].getValue();
+                decimal working = Coin.coinArray[elementToAdd].GetValue();
                 if (working > amount)
                 {
                     elementToAdd++;

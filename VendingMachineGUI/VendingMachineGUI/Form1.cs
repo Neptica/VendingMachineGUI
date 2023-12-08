@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace VendingMachineGUI
@@ -14,11 +8,11 @@ namespace VendingMachineGUI
     {
         private VendingMachine machine;
         private const bool DEVELOPERMODE = false;
-        private string[] userinput = { "", "" };
+        private string[] userInput = { "", "" };
         private string pwAttempt = "";
-        private string password = "A1D4B2C3";
+        private readonly string password = "A1D4B2C3";
         private bool privileged = false;
-        private string[] productNames = {
+        private readonly string[] productNames = {
             "Cool Ranch Doritos",
             "Doritos",
             "Cheetos",
@@ -84,28 +78,28 @@ namespace VendingMachineGUI
             Button sentBy = (Button)sender;
             string key = sentBy.Text;
             int result;
-            if (int.TryParse(key, out result)) adjustDisplay(result);
-            else adjustDisplay(key);
+            if (int.TryParse(key, out result)) AdjustDisplay(result);
+            else AdjustDisplay(key);
             if (!privileged)
             {
-                if (userinput[0] != "" && userinput[1] != "")
+                if (userInput[0] != "" && userInput[1] != "")
                 {
                     int index = 99;
-                    index = GetProductIndex(userinput[0] + userinput[1]);
+                    index = GetProductIndex(userInput[0] + userInput[1]);
                     if (index != 99)
                     {
-                        if (machine.getProductTypes()[index].Quantity == 0) textBox2.Text = "Out of Stock";
+                        if (machine.GetProductTypes()[index].Quantity == 0) textBox2.Text = "Out of Stock";
                         else
                         {
-                            textBox2.Text = productNames[index];
-                            textBox3.Text = machine.priceToString();
+                            textBox2.Text = machine.GetProductTypes()[index].GetDescription();
+                            textBox3.Text = machine.PriceToString();
                         }
                     }
                 }
             }
         }
 
-        private void button9_Click(object sender, EventArgs e) // Hashtag (Clear and Login Attempt)
+        private void Hashtag(object sender, EventArgs e) // Hashtag (Clear and Login Attempt)
         {
             if (pwAttempt == password)
             {
@@ -119,7 +113,7 @@ namespace VendingMachineGUI
                 }
                 else
                 {
-                    string removed = machine.removeMoney("revenue").ToString("C");
+                    string removed = machine.RemoveMoney("revenue").ToString("C");
                     if (removed == "$0.00") textBox2.Text = "Nothing to Remove";
                     else textBox2.Text = string.Format("Profited {0} and Entering Customer Mode", removed);
                     machine.Inserted = 0; // machine will crash if customer tries to get change from an empty machine
@@ -128,19 +122,19 @@ namespace VendingMachineGUI
                     button11.Text = "Purchase";
                 }
                 pwAttempt = "";
-                userinput[0] = " ";
-                userinput[1] = " ";
+                userInput[0] = " ";
+                userInput[1] = " ";
             }
             else if (privileged)
             {
                 if (pwAttempt == "A")
                 {
-                    textBox2.Text = String.Format("Total amount of money in the machine: {0}", machine.getMoney().ToString("C"));
+                    textBox2.Text = String.Format("Total amount of money in the machine: {0}", machine.GetMoney().ToString("C"));
                     pwAttempt = "";
                 }
                 else if (pwAttempt == "B")
                 {
-                    string removed = machine.removeMoney("revenue").ToString("C");
+                    string removed = machine.RemoveMoney("revenue").ToString("C");
                     if (removed == "$0.00") textBox2.Text = "Nothing to Remove";
                     else textBox2.Text = "Total amount of money removed from the machine" + removed;
                     machine.Inserted = 0; // machine will crash if customer tries to get change from an empty machine
@@ -150,28 +144,28 @@ namespace VendingMachineGUI
             } 
             else
             {
-                adjustDisplay();
+                AdjustDisplay();
             }
         }
 
-        private void button10_Click(object sender, EventArgs e) // Eject
+        private void EjectRestock(object sender, EventArgs e) // Eject
         {
             if (privileged)
             {
-                machine.restockProducts();
+                machine.RestockProducts();
                 textBox2.Text = "Restocked"; // functionality not added yet
             }
             else
             {
-                adjustDisplay();
-                string removed = machine.removeMoney("current").ToString("C");
+                AdjustDisplay();
+                string removed = machine.RemoveMoney("current").ToString("C");
                 if (removed == "$0.00") textBox2.Text = "Nothing to Eject";
                 else textBox2.Text = string.Format("Removed {0}", removed);
                 textBox3.Text = machine.Inserted.ToString("C");
             }
         }
 
-        private void button11_Click(object sender, EventArgs e) // Purchase
+        private void PurchaseLogout(object sender, EventArgs e) // Purchase
         {
             if (privileged)
             {
@@ -181,20 +175,19 @@ namespace VendingMachineGUI
                 privileged = !privileged;
                 textBox2.Text = "Logged out"; // functionality not added yet
                 textBox1.Text = "";
-                userinput[0] = "";
-                userinput[1] = "";
+                userInput[0] = "";
+                userInput[1] = "";
             }
             else
             {
                 string input = textBox1.Text.Replace(" ", ""); // removes whitespaces DO NOT REMOVE
                 if (input.Length == 2)
                 {
-                    int index = 99;
-                    index = GetProductIndex(input);
+                    int index = GetProductIndex(input);
                     textBox1.Text = "";
-                    userinput[0] = "";
-                    userinput[1] = "";
-                    textBox2.Text = machine.buyProduct(index, vendingMachineBottom, timer1);
+                    userInput[0] = "";
+                    userInput[1] = "";
+                    textBox2.Text = machine.BuyProduct(index, vendingMachineBottom, timer1);
                     textBox3.Text = machine.Inserted.ToString("C");
                 }
             }
@@ -207,27 +200,27 @@ namespace VendingMachineGUI
             switch (amount)
             {
                 case "5¢":
-                    machine.addCoin(Coin.NICKEL);
+                    machine.AddCoin(Coin.NICKEL);
                     textBox2.Text = "You just inserted $0.05\r\n\r\n\r\nTotal:";
                     break;
                 case "10¢":
-                    machine.addCoin(Coin.DIME);
+                    machine.AddCoin(Coin.DIME);
                     textBox2.Text = "You just inserted $0.10\r\n\r\n\r\nTotal:";
                     break;
                 case "25¢":
-                    machine.addCoin(Coin.QUARTER);
+                    machine.AddCoin(Coin.QUARTER);
                     textBox2.Text = "You just inserted $0.25\r\n\r\n\r\nTotal:";
                     break;
                 case "50¢":
-                    machine.addCoin(Coin.HALFDOLLAR);
+                    machine.AddCoin(Coin.HALFDOLLAR);
                     textBox2.Text = "You just inserted $0.50\r\n\r\n\r\nTotal:";
                     break;
                 case "$1":
-                    machine.addCoin(Coin.DOLLAR); 
+                    machine.AddCoin(Coin.DOLLAR); 
                     textBox2.Text = "You just inserted $1.00\r\n\r\n\r\nTotal:";
                     break;
                 case "$5":
-                    machine.addCoin(Coin.FIVER);
+                    machine.AddCoin(Coin.FIVER);
                     textBox2.Text = "You just inserted $5.00\r\n\r\n\r\nTotal:";
                     break;
                 default:
@@ -236,40 +229,40 @@ namespace VendingMachineGUI
             }
             textBox3.Text = machine.Inserted.ToString("C");
         }
-        private void adjustDisplay(int input)
+        private void AdjustDisplay(int input)
         {
             pwAttempt += input;
-            userinput[1] = Convert.ToString(input);
+            userInput[1] = Convert.ToString(input);
             DisplayUserInput();
         }
-        private void adjustDisplay(string input)
+        private void AdjustDisplay(string input)
         {
             pwAttempt += input;
-            userinput[0] = input;
+            userInput[0] = input;
             DisplayUserInput();
         }
-        private void adjustDisplay()
+        private void AdjustDisplay()
         {
-            userinput[0] = "";
-            userinput[1] = "";
+            userInput[0] = "";
+            userInput[1] = "";
             pwAttempt = "";
             DisplayUserInput();
         }
         private void DisplayUserInput()
         {
             if (DEVELOPERMODE) textBox2.Text = pwAttempt; // this is displayed for developer convenience
-            textBox1.Text = string.Join("", userinput);
+            textBox1.Text = string.Join("", userInput);
         }
         public static void MakePictureFall(System.Windows.Forms.Timer timer, int element)
         {
-            i = element;
+            subscript = element;
             timer.Start();
         }
 
         private int velocity = 0;
         private int ticks = 0;
         private int tempTop;
-        private static int i;
+        private static int subscript;
         public async void timer1_Tick(object sender, EventArgs e)
         {
             if (ticks == 0)
@@ -290,13 +283,13 @@ namespace VendingMachineGUI
                 ticks = 0;
                 VendingMachine.falling.Top = tempTop;
                 timer1.Stop();
-                if (VendingMachine.products[i].Quantity == 1)
+                if (VendingMachine.products[subscript].Quantity == 1)
                 {
-                    VendingMachine.products[i].Display.Visible = false;
+                    VendingMachine.products[subscript].Display.Visible = false;
                 }
-                if (VendingMachine.products[i].Quantity == 0)
+                if (VendingMachine.products[subscript].Quantity == 0)
                 {
-                    VendingMachine.products[i].Falling.Visible = false;
+                    VendingMachine.products[subscript].Falling.Visible = false;
                 }
             }
         }

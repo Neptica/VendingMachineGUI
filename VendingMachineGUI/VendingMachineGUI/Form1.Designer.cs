@@ -245,7 +245,7 @@ namespace VendingMachineGUI
             this.hashTag.Tag = "button";
             this.hashTag.Text = "#";
             this.hashTag.UseVisualStyleBackColor = true;
-            this.hashTag.Click += new System.EventHandler(this.button9_Click);
+            this.hashTag.Click += new System.EventHandler(this.Hashtag);
             // 
             // button10
             // 
@@ -257,7 +257,7 @@ namespace VendingMachineGUI
             this.button10.Tag = "button";
             this.button10.Text = "Eject";
             this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.button10.Click += new System.EventHandler(this.EjectRestock);
             // 
             // textBox2
             // 
@@ -281,7 +281,7 @@ namespace VendingMachineGUI
             this.button11.Tag = "button";
             this.button11.Text = "Purchase";
             this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button11.Click += new System.EventHandler(this.PurchaseLogout);
             // 
             // label1
             // 

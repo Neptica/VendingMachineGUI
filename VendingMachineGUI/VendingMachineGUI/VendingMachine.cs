@@ -31,7 +31,7 @@ namespace VendingMachineGUI
             }
         }
 
-        public void restockProducts()
+        public void RestockProducts()
         {
             foreach (Product product in products)
             {
@@ -41,7 +41,7 @@ namespace VendingMachineGUI
             }
         }
 
-        public List<Product> getProductTypes()
+        public List<Product> GetProductTypes()
         {
             List<Product> types = new List<Product>();
             for (int i = 0; i < products.Count; i++)
@@ -52,25 +52,25 @@ namespace VendingMachineGUI
             return types;
         }
 
-        public void addProduct(Product p)
+        public void AddProduct(Product p)
         {
             products.Add(p);
         }
 
-        public void addCoin(Coin c)
+        public void AddCoin(Coin c)
         {
-            revenueBox.addCoin(c);
-            Inserted += c.getValue();
+            revenueBox.AddCoin(c);
+            Inserted += c.GetValue();
         }
 
-        public string buyProduct(int element, System.Windows.Forms.PictureBox vendingMachineBottom, System.Windows.Forms.Timer timer)
+        public string BuyProduct(int element, System.Windows.Forms.PictureBox vendingMachineBottom, System.Windows.Forms.Timer timer)
         {
             if (element == 99) return "Not a valid input";
             if (products[element].Quantity == 0) return "Cannot Purchase: Out of Product";
             else
             {
 
-                decimal price = products[element].getPrice();
+                decimal price = products[element].GetPrice();
                 if (price <= Inserted)
                 {
                     Inserted -= price;
@@ -87,36 +87,32 @@ namespace VendingMachineGUI
             }
         }
 
-        public bool productsAvailable()
-        {
-            return products.Count > 0;
-        }
 
-        public decimal removeMoney(string mode) // decimal has more precision than decimal (decimal doesn't calculate right)
+        public decimal RemoveMoney(string mode) // decimal has more precision than decimal (decimal doesn't calculate right)
         {
             if (mode == "revenue")
             {
                 Console.WriteLine(amountTakenFromChangeBox);
-                decimal r = revenueBox.getValue() - amountTakenFromChangeBox;
+                decimal r = revenueBox.GetValue() - amountTakenFromChangeBox;
                 amountTakenFromChangeBox = 0;
-                revenueBox.removeAllCoins();
+                revenueBox.RemoveAllCoins();
                 return r;
             }
             else
             {
                 decimal r = Inserted;
-                Inserted = revenueBox.removePartial(Inserted); // removes the amount possible and returns what must be taken from ChangeBox
-                if (Inserted > 0) amountTakenFromChangeBox = CoinBox.removeRest(Inserted); // Taken from change box.
+                Inserted = revenueBox.RemovePartial(Inserted); // removes the amount possible and returns what must be taken from ChangeBox
+                if (Inserted > 0) amountTakenFromChangeBox = CoinBox.RemoveRest(Inserted); // Taken from change box.
                 Inserted = 0;
                 return r;
             }
         }
 
-        public decimal getMoney()
+        public decimal GetMoney()
         {
-            return revenueBox.getValue();
+            return revenueBox.GetValue();
         }
-        public string priceToString()
+        public string PriceToString()
         {
             return PRICE.ToString("C");
         }

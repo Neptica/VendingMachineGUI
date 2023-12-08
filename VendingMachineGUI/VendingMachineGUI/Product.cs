@@ -8,8 +8,8 @@ namespace VendingMachineGUI
 {
     public class Product
     {
-        private string description;
-        private decimal price;
+        private readonly string description;
+        private readonly decimal price;
         public System.Windows.Forms.PictureBox Falling;
         public System.Windows.Forms.PictureBox Display;
         public Product(string aDescription, decimal aPrice, int aQuantity, System.Windows.Forms.PictureBox[] pictures)
@@ -23,12 +23,12 @@ namespace VendingMachineGUI
 
         public int Quantity { get; set; }
 
-        public string getDescription()
+        public string GetDescription()
         {
             return description;
         }
 
-        public decimal getPrice()
+        public decimal GetPrice()
         {
             return price;
         }
@@ -41,12 +41,6 @@ namespace VendingMachineGUI
             }
             Product b = (Product)other;
             return description.Equals(b.description) && price == b.price;
-        }
-
-        public string toString()
-        {
-            string priceString = price.ToString("C");
-            return description + " @ " + priceString;
         }
     }
 }

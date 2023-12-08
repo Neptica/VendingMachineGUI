@@ -45,3 +45,4 @@ C:\Users\mmumme3\VendingMachine\VendingMachineGUI\VendingMachineGUI\obj\Debug\Ve
 C:\Users\mmumme3\VendingMachine\VendingMachineGUI\VendingMachineGUI\obj\Debug\VendingMachineGUI.csproj.CoreCompileInputs.cache
 C:\Users\mmumme3\VendingMachine\VendingMachineGUI\VendingMachineGUI\obj\Debug\VendingMachineGUI.exe
 C:\Users\mmumme3\VendingMachine\VendingMachineGUI\VendingMachineGUI\obj\Debug\VendingMachineGUI.pdb
+C:\Users\mmumme3\VendingMachine\VendingMachineGUI\VendingMachineGUI\obj\Debug\VendingMachineGUI.csproj.AssemblyReference.cache

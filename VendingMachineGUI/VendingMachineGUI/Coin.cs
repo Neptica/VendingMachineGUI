@@ -23,13 +23,9 @@ namespace VendingMachineGUI
             value = aValue;
             name = aName;
         }
-        public decimal getValue()
+        public decimal GetValue()
         {
             return value;
-        }
-        public string getName()
-        {
-            return name;
         }
     }
 }
