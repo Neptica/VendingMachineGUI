@@ -9,6 +9,7 @@ namespace VendingMachineGUI
     class VendingMachine
     {
         private const decimal PRICE = 1.25M;
+        private const decimal GUMPRICE = 0.50M;
         public static List<Product> products;
         private decimal amountTakenFromChangeBox = 0;
         public CoinBox revenueBox = new CoinBox();
@@ -27,7 +28,8 @@ namespace VendingMachineGUI
                 pictureBoxes[0] = boxes[elementStart];
                 pictureBoxes[1] = boxes[elementStart + 1];
                 elementStart += 2;
-                products.Add(new Product(productNames[i], PRICE, 0, pictureBoxes));
+                if (i > 11) products.Add(new Product(productNames[i], GUMPRICE, 0, pictureBoxes));
+                else products.Add(new Product(productNames[i], PRICE, 0, pictureBoxes));
             }
         }
 
@@ -110,11 +112,11 @@ namespace VendingMachineGUI
 
         public decimal GetMoney()
         {
-            return revenueBox.GetValue();
+            return revenueBox.GetValue() - amountTakenFromChangeBox;
         }
-        public string PriceToString()
+        public string PriceToString(int index)
         {
-            return PRICE.ToString("C");
+            return products[index].GetPrice().ToString("C");
         }
     }
 }

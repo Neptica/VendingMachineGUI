@@ -92,7 +92,7 @@ namespace VendingMachineGUI
                         else
                         {
                             textBox2.Text = machine.GetProductTypes()[index].GetDescription();
-                            textBox3.Text = machine.PriceToString();
+                            textBox3.Text = machine.PriceToString(index);
                         }
                     }
                 }
