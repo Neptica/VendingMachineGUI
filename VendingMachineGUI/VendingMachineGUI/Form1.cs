@@ -259,76 +259,7 @@ namespace VendingMachineGUI
                 if (input.Length == 2)
                 {
                     int index = 99;
-                    switch (input)
-                    {
-                        case "A1":
-                            // code to purchase the first element
-                            index = 0;
-                            break;
-                        case "A2":
-                            // code to purchase the second element, etc
-                            index = 1;
-                            break;
-                        case "A3":
-                            // code to purchase the first element
-                            index = 2;
-                            break;
-                        case "A4":
-                            // code to purchase the second element, etc
-                            index = 3;
-                            break;
-                        case "B1":
-                            // code to purchase the first element
-                            index = 4;
-                            break;
-                        case "B2":
-                            // code to purchase the second element, etc
-                            index = 5;
-                            break;
-                        case "B3":
-                            // code to purchase the first element
-                            index = 6;
-                            break;
-                        case "B4":
-                            // code to purchase the second element, etc
-                            index = 7;
-                            break;
-                        case "C1":
-                            // code to purchase the first element
-                            index = 8;
-                            break;
-                        case "C2":
-                            // code to purchase the second element, etc
-                            index = 9;
-                            break;
-                        case "C3":
-                            // code to purchase the first element
-                            index = 10;
-                            break;
-                        case "C4":
-                            // code to purchase the second element, etc
-                            index = 11;
-                            break;
-                        case "D1":
-                            // code to purchase the first element
-                            index = 12;
-                            break;
-                        case "D2":
-                            // code to purchase the second element, etc
-                            index = 13;
-                            break;
-                        case "D3":
-                            // code to purchase the first element
-                            index = 14;
-                            break;
-                        case "D4":
-                            // code to purchase the second element, etc
-                            index = 15;
-                            break;
-                        default:
-                            textBox2.Text = "not possible";
-                            break;
-                    }
+                    index = GetProductIndex();
                     textBox1.Text = "";
                     userinput[0] = "";
                     userinput[1] = "";
@@ -437,6 +368,81 @@ namespace VendingMachineGUI
                     VendingMachine.products[i].Falling.Visible = false;
                 }
             }
+        }
+        private static int GetProductIndex(string input)
+        {
+            int index = 0;
+            switch (input)
+            {
+                case "A1":
+                    // code to purchase the first element
+                    index = 0;
+                    break;
+                case "A2":
+                    // code to purchase the second element, etc
+                    index = 1;
+                    break;
+                case "A3":
+                    // code to purchase the first element
+                    index = 2;
+                    break;
+                case "A4":
+                    // code to purchase the second element, etc
+                    index = 3;
+                    break;
+                case "B1":
+                    // code to purchase the first element
+                    index = 4;
+                    break;
+                case "B2":
+                    // code to purchase the second element, etc
+                    index = 5;
+                    break;
+                case "B3":
+                    // code to purchase the first element
+                    index = 6;
+                    break;
+                case "B4":
+                    // code to purchase the second element, etc
+                    index = 7;
+                    break;
+                case "C1":
+                    // code to purchase the first element
+                    index = 8;
+                    break;
+                case "C2":
+                    // code to purchase the second element, etc
+                    index = 9;
+                    break;
+                case "C3":
+                    // code to purchase the first element
+                    index = 10;
+                    break;
+                case "C4":
+                    // code to purchase the second element, etc
+                    index = 11;
+                    break;
+                case "D1":
+                    // code to purchase the first element
+                    index = 12;
+                    break;
+                case "D2":
+                    // code to purchase the second element, etc
+                    index = 13;
+                    break;
+                case "D3":
+                    // code to purchase the first element
+                    index = 14;
+                    break;
+                case "D4":
+                    // code to purchase the second element, etc
+                    index = 15;
+                    break;
+                default:
+                    index = 99;
+                    break;
+            }
+            return index;
         }
     }
 }
